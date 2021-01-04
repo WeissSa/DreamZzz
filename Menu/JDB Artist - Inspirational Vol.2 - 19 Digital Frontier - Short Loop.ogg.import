@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/JDB Artist - Inspirational Vol.2 - 19 Digital Frontier - Short Loop.ogg-6e374784a940a1c55958f4697967e7c5.oggstr"
+
+[deps]
+
+source_file="res://Menu/JDB Artist - Inspirational Vol.2 - 19 Digital Frontier - Short Loop.ogg"
+dest_files=[ "res://.import/JDB Artist - Inspirational Vol.2 - 19 Digital Frontier - Short Loop.ogg-6e374784a940a1c55958f4697967e7c5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

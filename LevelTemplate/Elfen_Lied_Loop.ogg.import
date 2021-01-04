@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Elfen_Lied_Loop.ogg-a21103ab894e5647a9860d52bd613f62.oggstr"
+
+[deps]
+
+source_file="res://LevelTemplate/Elfen_Lied_Loop.ogg"
+dest_files=[ "res://.import/Elfen_Lied_Loop.ogg-a21103ab894e5647a9860d52bd613f62.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

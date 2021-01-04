@@ -1,0 +1,131 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Entities/Enemies/Wizard/Idle/4.png" type="Texture" id=1]
+[ext_resource path="res://Entities/Enemies/Wizard/Attack/0.png" type="Texture" id=2]
+[ext_resource path="res://Entities/Enemies/Wizard/Attack/7.png" type="Texture" id=3]
+[ext_resource path="res://Entities/Enemies/Wizard/Attack/5.png" type="Texture" id=4]
+[ext_resource path="res://Entities/Enemies/Wizard/Attack/3.png" type="Texture" id=5]
+[ext_resource path="res://Entities/Enemies/Wizard/Attack/1.png" type="Texture" id=6]
+[ext_resource path="res://Entities/Enemies/Wizard/Idle/5.png" type="Texture" id=7]
+[ext_resource path="res://Entities/Enemies/Wizard/torchmap.png" type="Texture" id=8]
+[ext_resource path="res://Entities/Enemies/Wizard/Attack/4.png" type="Texture" id=9]
+[ext_resource path="res://Entities/Enemies/Wizard/Attack/2.png" type="Texture" id=10]
+[ext_resource path="res://Entities/Enemies/Wizard/Attack/6.png" type="Texture" id=11]
+[ext_resource path="res://Entities/Enemies/Wizard/Idle/2.png" type="Texture" id=12]
+[ext_resource path="res://Entities/Enemies/Wizard/Idle/1.png" type="Texture" id=13]
+[ext_resource path="res://Entities/Enemies/Wizard/Idle/3.png" type="Texture" id=14]
+[ext_resource path="res://Entities/Enemies/Wizard/Wizard.gd" type="Script" id=15]
+[ext_resource path="res://Entities/Entity.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Entities/Enemies/Wizard/Full_Awareness.png" type="Texture" id=17]
+[ext_resource path="res://Entities/Enemies/Wizard/Empty_Awareness.png" type="Texture" id=18]
+[ext_resource path="res://Entities/Enemies/Wizard/Attack/Fireball/Tension.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Entities/Enemies/Wizard/Attack/Fireball/Fireball.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Objects/Light.tscn" type="PackedScene" id=21]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 13.5137
+height = 41.0008
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 1 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 12.0
+} ]
+
+[node name="Wizard" instance=ExtResource( 16 )]
+modulate = Color( 0.721569, 0.690196, 0.690196, 1 )
+collision_layer = 2147483664
+collision_mask = 2
+script = ExtResource( 15 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( -2.01367, 22.0004 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
+position = Vector2( 13.4543, 0 )
+frames = SubResource( 2 )
+animation = "Idle"
+frame = 4
+playing = true
+
+[node name="RightLight" type="Light2D" parent="." index="3"]
+position = Vector2( -0.0400085, -1.33786 )
+scale = Vector2( 0.6, 0.7 )
+texture = ExtResource( 8 )
+offset = Vector2( 320, 0 )
+color = Color( 0.490196, 0.0823529, 0.827451, 1 )
+range_height = 5.0
+range_layer_min = -1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 0.972549 )
+shadow_item_cull_mask = -2147483647
+
+[node name="LeftLight" type="Light2D" parent="." index="4"]
+position = Vector2( -0.58989, -1.33753 )
+rotation = -3.14159
+scale = Vector2( 0.6, 0.7 )
+texture = ExtResource( 8 )
+offset = Vector2( 320, 0 )
+color = Color( 0.490196, 0.0823529, 0.827451, 1 )
+range_height = 5.0
+range_layer_min = -1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 0.972549 )
+shadow_item_cull_mask = -2147483647
+
+[node name="TextureProgress" type="TextureProgress" parent="." index="5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -12.8
+margin_top = -43.0
+margin_right = 51.2
+margin_bottom = 21.0
+rect_scale = Vector2( 0.4, 0.4 )
+max_value = 200.0
+texture_under = ExtResource( 18 )
+texture_progress = ExtResource( 17 )
+fill_mode = 3
+tint_under = Color( 1, 1, 1, 0.352941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="6"]
+collision_mask = 3
+collide_with_areas = true
+
+[node name="FireballTimer" type="Timer" parent="." index="7"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Tension" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource( 19 )
+bus = "SFX"
+
+[node name="TensionTimer" type="Timer" parent="." index="9"]
+wait_time = 15.0
+one_shot = true
+
+[node name="Fireball" type="AudioStreamPlayer" parent="." index="10"]
+stream = ExtResource( 20 )
+volume_db = -11.108
+pitch_scale = 0.72
+bus = "SFX"
+
+[node name="Light" parent="." index="11" instance=ExtResource( 21 )]
+position = Vector2( 23.5, -9.5 )
+texture_scale = 0.8
+color = Color( 0.729412, 0.360784, 0.823529, 0.411765 )
+energy = 1.5
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="value_changed" from="TextureProgress" to="." method="_on_TextureProgress_value_changed"]
+[connection signal="timeout" from="FireballTimer" to="." method="_on_FireballTimer_timeout"]
+[connection signal="timeout" from="TensionTimer" to="." method="_on_TensionTimer_timeout"]

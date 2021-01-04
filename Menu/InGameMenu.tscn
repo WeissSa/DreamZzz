@@ -1,0 +1,148 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Menu/DefaultTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Menu/Buttons/SFX_-_lock_close_01.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Menu/Audio Settings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menu/Key Bindings.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Menu/Video Settings.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Menu/InGameMenu.gd" type="Script" id=6]
+
+[node name="InGameMenu" type="Popup"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+theme = ExtResource( 1 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -250.0
+margin_right = 250.0
+margin_bottom = 250.0
+color = Color( 0.164706, 0.0431373, 0.286275, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+color = Color( 0.494118, 0.345098, 0.643137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -350.0
+margin_top = -200.0
+margin_right = 350.0
+margin_bottom = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 700.0
+margin_bottom = 30.0
+text = "Settings"
+align = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 34.0
+margin_right = 700.0
+margin_bottom = 104.0
+
+[node name="VideoSettings" type="Button" parent="VBoxContainer/CenterContainer2"]
+margin_left = 137.0
+margin_right = 562.0
+margin_bottom = 70.0
+text = "Video Settings"
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 108.0
+margin_right = 700.0
+margin_bottom = 178.0
+
+[node name="AudioSettings" type="Button" parent="VBoxContainer/CenterContainer"]
+margin_left = 136.0
+margin_right = 563.0
+margin_bottom = 70.0
+text = "Audio Settings"
+
+[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 182.0
+margin_right = 700.0
+margin_bottom = 252.0
+
+[node name="ControlSettings" type="Button" parent="VBoxContainer/CenterContainer3"]
+margin_left = 207.0
+margin_right = 492.0
+margin_bottom = 70.0
+text = "Controls"
+
+[node name="CenterContainer4" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 256.0
+margin_right = 700.0
+margin_bottom = 326.0
+
+[node name="backButton" type="Button" parent="VBoxContainer/CenterContainer4"]
+margin_left = 254.0
+margin_right = 446.0
+margin_bottom = 70.0
+text = "back"
+
+[node name="CenterContainer5" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 330.0
+margin_right = 700.0
+margin_bottom = 400.0
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/CenterContainer5"]
+margin_left = 139.0
+margin_right = 560.0
+margin_bottom = 70.0
+text = "Save and Quit"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -10.097
+bus = "SFX"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AudioSettings" parent="." instance=ExtResource( 3 )]
+
+[node name="KeyBindings" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="VideoSettings" parent="." instance=ExtResource( 5 )]
+visible = false
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/VideoSettings" to="." method="_on_VideoSettings_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/AudioSettings" to="." method="_on_AudioSettings_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer3/ControlSettings" to="." method="_on_ControlSettings_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer4/backButton" to="." method="_on_backButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer5/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="click" from="AudioSettings" to="." method="_on_Audio_Settings_click"]
+[connection signal="click" from="KeyBindings" to="." method="_on_KeyBindings_click"]
+[connection signal="click" from="VideoSettings" to="." method="_on_Video_Settings_click"]

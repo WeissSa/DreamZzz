@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Hazards/spike.png" type="Texture" id=1]
+[ext_resource path="res://Objects/BottomlessVoid.gd" type="Script" id=2]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -487.619, 58.9716, -438.797, -67.0205, -389.975, 49.5222, -344.303, -67.0205, -293.906, 52.672, -243.509, -65.4456, -194.687, 57.3967, -147.44, -65.4456, -97.0436, 55.8218, -48.2217, -65.4456, -2.54951, 55.8218, 47.8473, -63.8707, 95.0944, 49.5222, 145.491, -65.4456, 192.738, 52.672, 243.135, -71.7452, 287.232, 47.9473, 337.629, -65.4456, 389.601, 51.0971, 435.273, -67.0205, 487.245, 60.5465 )
+
+[node name="Spikes" type="Node2D"]
+scale = Vector2( 0.1, 0.1 )
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+polygon = PoolVector2Array( -491.667, 60, -440, -61.6667, 440, -63.3333, 490, 61.6667 )
+one_way_collision_margin = 0.0
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.52, 1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 640, 120 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 1 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

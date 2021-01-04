@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_-_lock_close_01.ogg-da5b772703f19a7b21ed66ceaca0740d.oggstr"
+
+[deps]
+
+source_file="res://Menu/Buttons/SFX_-_lock_close_01.ogg"
+dest_files=[ "res://.import/SFX_-_lock_close_01.ogg-da5b772703f19a7b21ed66ceaca0740d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,263 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Menu/JDB Artist - Inspirational Vol.2 - 19 Digital Frontier - Short Loop.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Menu/Star.png" type="Texture" id=2]
+[ext_resource path="res://Menu/Logo.png" type="Texture" id=3]
+[ext_resource path="res://Menu/DefaultTheme.tres" type="Theme" id=4]
+[ext_resource path="res://Menu/Buttons/SFX_-_lock_close_01.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Menu/Menu.gd" type="Script" id=6]
+[ext_resource path="res://Menu/Credits.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Menu/Settings.tscn" type="PackedScene" id=8]
+[ext_resource path="res://LevelTemplate/cloud3mod.png" type="Texture" id=9]
+[ext_resource path="res://LevelTemplate/cloud2mod.png" type="Texture" id=10]
+[ext_resource path="res://LevelTemplate/cloud1mod.png" type="Texture" id=11]
+[ext_resource path="res://Menu/Dreamzzz_background-2.png" type="Texture" id=12]
+[ext_resource path="res://Menu/MenuModulate.tres" type="Animation" id=13]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Flicker"
+
+[sub_resource type="Curve" id=2]
+min_value = -0.01
+max_value = 0.01
+_data = [ Vector2( 0, -0.00297727 ), 0.0, 0.0, 0, 0, Vector2( 0.246835, 0.00375 ), 0.0, 0.0, 0, 0, Vector2( 0.481013, -0.00315909 ), 0.0, 0.0, 0, 0, Vector2( 0.746835, 0.00375 ), 0.0, 0.0, 0, 0, Vector2( 0.987342, -0.00370454 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 1
+emission_sphere_radius = 5.41
+flag_disable_z = true
+gravity = Vector3( 10, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+orbit_velocity_curve = SubResource( 3 )
+scale = 2.0
+color = Color( 0.686275, 0.419608, 0.972549, 0.690196 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 5.41
+flag_disable_z = true
+gravity = Vector3( 5, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+orbit_velocity_curve = SubResource( 3 )
+scale = 2.0
+color = Color( 0.686275, 0.419608, 0.972549, 0.690196 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 1
+emission_sphere_radius = 5.41
+flag_disable_z = true
+gravity = Vector3( 4, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+orbit_velocity_curve = SubResource( 3 )
+scale = 2.0
+color = Color( 0.686275, 0.419608, 0.972549, 0.690196 )
+
+[sub_resource type="Curve" id=7]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 360 ), 0.0, -1237.72, 0, 0, Vector2( 0.981013, 360 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="Curve" id=9]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.28481, 0.475499 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=10]
+curve = SubResource( 9 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+gravity = Vector3( 25, 5, 0 )
+initial_velocity = 407.82
+initial_velocity_random = 0.71
+angular_velocity = 20.0
+angular_velocity_curve = SubResource( 8 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.2
+scale_random = 0.5
+scale_curve = SubResource( 10 )
+color = Color( 0.964706, 0.913725, 0.615686, 0.682353 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.705882 )
+self_modulate = Color( 0.84072, 0.5952, 0.93, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -142.636, -123.202 )
+texture = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+autoplay = "MenuModulate"
+anims/Flicker = SubResource( 1 )
+anims/MenuModulate = ExtResource( 13 )
+
+[node name="Clouds1" type="Particles2D" parent="."]
+position = Vector2( -146.796, 269.419 )
+amount = 1
+lifetime = 17.0
+visibility_rect = Rect2( 150, 150, 200, 200 )
+process_material = SubResource( 4 )
+texture = ExtResource( 9 )
+
+[node name="Clouds2" type="Particles2D" parent="."]
+position = Vector2( -160.28, 71.6422 )
+amount = 1
+lifetime = 22.0
+preprocess = 12.0
+visibility_rect = Rect2( 150, 150, 200, 200 )
+process_material = SubResource( 5 )
+texture = ExtResource( 10 )
+
+[node name="Clouds3" type="Particles2D" parent="."]
+position = Vector2( -136.307, 188.727 )
+amount = 1
+lifetime = 27.0
+preprocess = 20.0
+visibility_rect = Rect2( 150, 150, 200, 200 )
+process_material = SubResource( 6 )
+texture = ExtResource( 11 )
+
+[node name="Stars" type="Particles2D" parent="."]
+position = Vector2( -96.3258, 327.032 )
+amount = 64
+lifetime = 20.0
+preprocess = 8.0
+speed_scale = 0.2
+randomness = 0.2
+process_material = SubResource( 11 )
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.705882 )
+margin_left = 40.0
+margin_top = 35.0
+margin_right = 1064.0
+margin_bottom = 185.0
+rect_min_size = Vector2( 500, 150 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect2"]
+autoplay = "Modulate"
+anims/Modulate = ExtResource( 13 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 170.0
+margin_right = 10.0
+margin_bottom = 10.0
+custom_constants/separation = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/CenterContainer"]
+margin_left = 412.0
+margin_right = 612.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+text = "Play"
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 106.0
+margin_right = 1024.0
+margin_bottom = 206.0
+
+[node name="OptionButton" type="Button" parent="VBoxContainer/CenterContainer2"]
+margin_left = 387.0
+margin_right = 637.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+text = "Options"
+
+[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 212.0
+margin_right = 1024.0
+margin_bottom = 312.0
+
+[node name="CreditButton" type="Button" parent="VBoxContainer/CenterContainer3"]
+margin_left = 386.0
+margin_right = 638.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+text = "Credits"
+
+[node name="CenterContainer4" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 318.0
+margin_right = 1024.0
+margin_bottom = 418.0
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/CenterContainer4"]
+margin_left = 412.0
+margin_right = 612.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+text = "Quit"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.097
+bus = "SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -12.117
+autoplay = true
+bus = "Music"
+
+[node name="QuitTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="Settings" parent="." instance=ExtResource( 8 )]
+visible = true
+
+[node name="Credits" parent="." instance=ExtResource( 7 )]
+visible = true
+[connection signal="pressed" from="VBoxContainer/CenterContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/OptionButton" to="." method="_on_OptionButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer3/CreditButton" to="." method="_on_CreditButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer4/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="timeout" from="QuitTimer" to="." method="_on_QuitTimer_timeout"]
+[connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
+[connection signal="click" from="Settings" to="." method="_on_Settings_click"]
