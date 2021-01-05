@@ -14,25 +14,23 @@ func _ready():
 	sprite_directory.open("res://Player/Pickle/sprites/")
 	sprite_directory.list_dir_begin()
 	var sprite_path = sprite_directory.get_next()
-	sprite_path = sprite_directory.get_next()
-	sprite_path = sprite_directory.get_next()
 	while sprite_path != "":
-		if !sprite_path.ends_with("import"):
+		if sprite_path.ends_with("png"):
 			sprites.append("res://Player/Pickle/sprites/" + sprite_path)
 		sprite_path = sprite_directory.get_next()
 	print (sprites)
 
 func randomize_timer():
-	$Morph.wait_time = randi() % 5 + 10
+	$Morph.wait_time = randi() % 5 + 5
 	$Morph.start()
 
 
 func _process(delta):
-	if Player.motion.x > 0:
+	if Player.motion.x > -1:
 		$CurrentSprite.flip_h = false
 		$NextSprite.flip_h = false
 		$AnimationPlayer.play("Hover Left")
-	elif Player.motion.x != 0:
+	else:
 		$CurrentSprite.flip_h = true
 		$NextSprite.flip_h = true
 		$AnimationPlayer.play("Hover Right")
