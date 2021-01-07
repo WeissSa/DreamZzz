@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TileSets/NightmareTiles.tres" type="TileSet" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Entities/Enemies/Wizard/Wizard.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Objects/Bushes/Bush3.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Player/Pickle/Pickle.tscn" type="PackedScene" id=21]
+[ext_resource path="res://LevelTemplate/Dia.gd" type="Script" id=22]
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource( 3 )
@@ -201,3 +202,7 @@ volume_db = -12.117
 autoplay = true
 bus = "Music"
 script = ExtResource( 18 )
+
+[node name="DialogueTest" type="Node2D" parent="."]
+script = ExtResource( 22 )
+path = "res://Dialogue/DialogueExample.json"
