@@ -1,44 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player/Pickle/sprites/eyeball.png" type="Texture" id=1]
 [ext_resource path="res://Player/Pickle/Pickle.gd" type="Script" id=2]
 [ext_resource path="res://Player/Pickle/sprites/bee.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
-resource_name = "Hover Left"
-length = 4.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -20.103, -13.44 ), Vector2( -20.103, -23.44 ), Vector2( -20.103, -13.44 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "Hover Right"
-length = 4.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 20.103, -13.44 ), Vector2( 20.103, -23.44 ), Vector2( 20.103, -13.44 ) ]
-}
-
-[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CurrentSprite:modulate")
 tracks/0/interp = 1
@@ -66,7 +32,7 @@ tracks/1/keys = {
 
 [node name="Pickle" type="KinematicBody2D"]
 modulate = Color( 1, 1, 1, 0.827451 )
-position = Vector2( -20.103, -18.44 )
+position = Vector2( -20.103, -13.44 )
 scale = Vector2( 0.3, 0.3 )
 z_index = 2
 collision_layer = 0
@@ -83,12 +49,7 @@ texture = ExtResource( 3 )
 [node name="Morph" type="Timer" parent="."]
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Hover Left"
-"anims/Hover Left" = SubResource( 1 )
-"anims/Hover Right" = SubResource( 2 )
-
 [node name="Morpher" type="AnimationPlayer" parent="."]
-anims/Morph = SubResource( 3 )
+anims/Morph = SubResource( 1 )
 [connection signal="timeout" from="Morph" to="." method="_on_Morph_timeout"]
 [connection signal="animation_finished" from="Morpher" to="." method="_on_Morpher_animation_finished"]

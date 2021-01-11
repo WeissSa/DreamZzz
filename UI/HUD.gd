@@ -17,6 +17,10 @@ func take_damage():
 	hearts.pop_back()
 	update_UI()
 
+func add_heart():
+	hearts.append(1)
+	update_UI()
+
 func hookshot_track(used):
 	if used:
 		hookshot = true

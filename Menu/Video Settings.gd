@@ -70,3 +70,7 @@ func _on_BackButton_pressed():
 func _on_VSyncButton_toggled():
 	OS.vsync_enabled = !OS.vsync_enabled
 	emit_signal("click")
+	
+func _input(event):
+	if Input.is_action_just_pressed("menu"):
+		hide()

@@ -10,6 +10,9 @@ func _on_Area2D_body_entered(body):
 	if not enabled and body.collision_layer == 1:
 		get_tree().call_group("spawnpoint", "disable")
 		yield(get_tree(),"idle_frame")
+		if body.health < 3:
+			body.health += 1
+			get_tree().call_group("UI", "add_heart")
 		switch(true)
 
 func disable():

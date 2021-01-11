@@ -80,6 +80,8 @@ func _input(event):
 			can_change_key = false
 			$Filter.hide()
 			$ButtonChange.hide()
+		elif Input.is_action_just_pressed("menu"):
+			hide()
 
 func _change_key(new_key):
 	if !InputMap.get_action_list(action_string).empty():

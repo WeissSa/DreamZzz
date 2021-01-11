@@ -70,10 +70,10 @@ animations = [ {
 "name": "Run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 27 ) ],
-"loop": false,
-"name": "Attack",
-"speed": 30.0
+"frames": [ ExtResource( 19 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "WallJump",
+"speed": 7.0
 }, {
 "frames": [ ExtResource( 37 ), ExtResource( 39 ), ExtResource( 38 ) ],
 "loop": false,
@@ -85,10 +85,10 @@ animations = [ {
 "name": "AirAttack",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "WallJump",
-"speed": 7.0
+"frames": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 27 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 30.0
 } ]
 
 [sub_resource type="Animation" id=4]
@@ -143,6 +143,7 @@ shape = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="WallRaycast" type="Node2D" parent="."]

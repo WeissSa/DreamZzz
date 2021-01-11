@@ -1,11 +1,12 @@
 extends KinematicBody2D
 
 var sprites = []
+var motion = Vector2(0,0)
+var skip = false
 
 onready var Player = get_node("/root").find_node("Player", true, false)
 
 func _ready():
-	$AnimationPlayer.play("Hover Left")
 	randomize()
 	randomize_timer()
 	$CurrentSprite.modulate = Color("ffffff")
@@ -25,17 +26,43 @@ func randomize_timer():
 	$Morph.start()
 
 
-func _process(delta):
-	if Player.motion.x > -1:
+func _physics_process(delta):
+	if Player.motion.x > 0 and !Player.sliding:
+		move(false)
+	elif Player.motion.x < 0 and !Player.sliding:
+		move(true)
+	
+	if motion.x > 0:
 		$CurrentSprite.flip_h = false
 		$NextSprite.flip_h = false
-		$AnimationPlayer.play("Hover Left")
-	else:
+	elif motion.x < 0:
 		$CurrentSprite.flip_h = true
 		$NextSprite.flip_h = true
-		$AnimationPlayer.play("Hover Right")
+	
+	
+	move_and_slide(motion, Vector2.UP)
 
 
+func move(left):
+	var destinationX
+	if left:
+		destinationX = Player.position.x - 12
+		if global_position.x < (destinationX):
+			motion.x = 0
+			skip = true
+		else:
+			skip = false
+	else:
+		destinationX = Player.position.x + 12
+		if global_position.x > (destinationX):
+			motion = (Vector2(0,0))
+			skip = true
+		else:
+			skip = false
+	if !skip:
+		var dirX = destinationX - position.x
+		var dirY = Player.position.y - position.y - (randi() % 20 - 10)
+		motion = Vector2(dirX, dirY)
 
 func _on_Morph_timeout():
 	$NextSprite.texture = load(sprites[randi() % len(sprites)])

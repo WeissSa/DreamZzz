@@ -33,3 +33,7 @@ func _on_SFXSlider_value_changed(value):
 
 func _on_MusicSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(MUSIC, value)
+
+func _input(event):
+	if Input.is_action_just_pressed("menu"):
+		hide()
