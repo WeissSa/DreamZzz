@@ -3,7 +3,7 @@ extends KinematicBody2D
 var sprites = []
 var motion = Vector2(0,0)
 var skip = false
-
+const SPEED = 2
 onready var Player = get_node("/root").find_node("Player", true, false)
 
 func _ready():
@@ -27,11 +27,14 @@ func randomize_timer():
 
 
 func _physics_process(delta):
+	var dir = false
 	if Player.motion.x > 0 and !Player.sliding:
-		move(false)
+		dir = false
 	elif Player.motion.x < 0 and !Player.sliding:
-		move(true)
-	
+		dir = true
+	else:
+		dir = $CurrentSprite.flip_h
+	move(dir)
 	if motion.x > 0:
 		$CurrentSprite.flip_h = false
 		$NextSprite.flip_h = false
@@ -40,29 +43,18 @@ func _physics_process(delta):
 		$NextSprite.flip_h = true
 	
 	
-	move_and_slide(motion, Vector2.UP)
+	move_and_slide(motion, Vector2.UP) 
 
 
 func move(left):
 	var destinationX
-	if left:
-		destinationX = Player.position.x - 12
-		if global_position.x < (destinationX):
-			motion.x = 0
-			skip = true
-		else:
-			skip = false
+	if !left:
+		destinationX = Player.global_position.x - 30
 	else:
-		destinationX = Player.position.x + 12
-		if global_position.x > (destinationX):
-			motion = (Vector2(0,0))
-			skip = true
-		else:
-			skip = false
-	if !skip:
-		var dirX = destinationX - position.x
-		var dirY = Player.position.y - position.y - (randi() % 20 - 10)
-		motion = Vector2(dirX, dirY)
+		destinationX = Player.global_position.x + 30
+	var dirX = (destinationX - position.x) * SPEED
+	var dirY = Player.position.y - position.y - (randi() % 60 - 40) - 10
+	motion = Vector2(dirX, dirY)
 
 func _on_Morph_timeout():
 	$NextSprite.texture = load(sprites[randi() % len(sprites)])
