@@ -5,6 +5,7 @@ onready var nameLabel = $NinePatchRect/NameLabel
 var data
 var i = 1 
 var done = false
+var first = true
 export (String, FILE) var path = null
 
 
@@ -18,9 +19,13 @@ func _ready():
 	data = parse_json(content)
 	dialogue.close()
 	hide()
+	yield(get_tree(), "idle_frame" )
 	display(i)
 
 func _process(delta):
+	if first and visible:
+		display(i)
+		first = false
 	if visible:
 		if Input.is_action_just_pressed("action") or Input.is_action_just_pressed("attack"):
 			if not done:
@@ -40,7 +45,9 @@ func display(message_number):
 		if load(sprite) != $TextureRect.texture:
 			$TextureRect/AnimationPlayer.play("Fade")
 		$TextureRect.texture = load(sprite)
-		$TextureRect.set_position(DialogueHelper.get_pos(data[str(message_number)].get("person")))
+		if data[str(message_number)].get("person") == "Pickles":
+			var Pickles = get_node("/root").find_node("Pickle", true, false)
+			sprite = Pickles.texture_store
 		done = false
 		$Timer.start()
 	else:

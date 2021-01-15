@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/jellyfish.png-5548fc0634dba01188b6fb000f35e751.stex"
+path="res://.import/Jellyfish.png-b7f7631c92948a4515fdb42feb7b7c7e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Pickle/sprites/jellyfish.png"
-dest_files=[ "res://.import/jellyfish.png-5548fc0634dba01188b6fb000f35e751.stex" ]
+source_file="res://Player/Pickle/sprites/Jellyfish.png"
+dest_files=[ "res://.import/Jellyfish.png-b7f7631c92948a4515fdb42feb7b7c7e.stex" ]
 
 [params]
 

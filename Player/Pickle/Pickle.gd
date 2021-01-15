@@ -4,6 +4,8 @@ var sprites = []
 var motion = Vector2(0,0)
 var skip = false
 const SPEED = 2
+var texture_store
+var path = "res://Player/Pickle/sprites/eyeball.png"
 onready var Player = get_node("/root").find_node("Player", true, false)
 
 func _ready():
@@ -19,7 +21,6 @@ func _ready():
 		if sprite_path.ends_with("png"):
 			sprites.append("res://Player/Pickle/sprites/" + sprite_path)
 		sprite_path = sprite_directory.get_next()
-	print (sprites)
 
 func randomize_timer():
 	$Morph.wait_time = randi() % 5 + 5
@@ -44,6 +45,7 @@ func _physics_process(delta):
 	
 	
 	move_and_slide(motion, Vector2.UP) 
+	texture_store = $CurrentSprite.texture
 
 
 func move(left):
@@ -57,7 +59,8 @@ func move(left):
 	motion = Vector2(dirX, dirY)
 
 func _on_Morph_timeout():
-	$NextSprite.texture = load(sprites[randi() % len(sprites)])
+	path = sprites[randi() % len(sprites)]
+	$NextSprite.texture = load(path)
 	$Morpher.play("Morph")
 
 
