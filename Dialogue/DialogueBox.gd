@@ -7,6 +7,9 @@ var i = 1
 var done = false
 export (String, FILE) var path = null
 
+
+signal dialogue_over
+
 func _ready():
 	speechLabel.visible_characters = 0
 	var dialogue = File.new()
@@ -14,6 +17,7 @@ func _ready():
 	var content = dialogue.get_as_text()
 	data = parse_json(content)
 	dialogue.close()
+	hide()
 	display(i)
 
 func _process(delta):
@@ -32,11 +36,17 @@ func display(message_number):
 	if message_number <= data.size():
 		speechLabel.text = data[str(message_number)].get("text")
 		nameLabel.text = data[str(message_number)].get("person")
+		var sprite = DialogueHelper.get_sprite(data[str(message_number)].get("person"))
+		if load(sprite) != $TextureRect.texture:
+			$TextureRect/AnimationPlayer.play("Fade")
+		$TextureRect.texture = load(sprite)
+		$TextureRect.set_position(DialogueHelper.get_pos(data[str(message_number)].get("person")))
 		done = false
 		$Timer.start()
 	else:
 		i = -1
 		hide()
+		emit_signal("dialogue_over")
 
 func _on_Timer_timeout():
 	speechLabel.visible_characters += 1

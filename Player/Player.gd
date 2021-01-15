@@ -52,6 +52,8 @@ func _physics_process(delta):
 			motion += chain_vel
 		move_and_slide(motion, UP)
 	else:
+		motion.x = 0
+		$AnimatedSprite.play("idle")
 		if $Light.visible:
 			$Light.hide()
 

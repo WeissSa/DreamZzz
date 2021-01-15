@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pickles3.png-22bdb6588ca725a49675238536a68430.stex"
+path="res://.import/Pickles9.png-984d4cfb0042e03e7602e84d7a30cf8c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Dialogue/Pickles3.png"
-dest_files=[ "res://.import/Pickles3.png-22bdb6588ca725a49675238536a68430.stex" ]
+source_file="res://Dialogue/Pickles9.png"
+dest_files=[ "res://.import/Pickles9.png-984d4cfb0042e03e7602e84d7a30cf8c.stex" ]
 
 [params]
 
