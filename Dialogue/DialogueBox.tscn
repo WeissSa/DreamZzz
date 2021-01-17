@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Dialogue/DialogueBox.png" type="Texture" id=1]
 [ext_resource path="res://Dialogue/DialogueBox.gd" type="Script" id=2]
@@ -20,6 +20,39 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.261831, 0.222111, 0.415039, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.294118, 0.156863, 0.301961, 1 )
+corner_detail = 10
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0630612, 0.0418633, 0.144825, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.294118, 0.156863, 0.301961, 1 )
+corner_detail = 10
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0980392, 0.0705882, 0.203922, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.294118, 0.156863, 0.301961, 1 )
+corner_detail = 10
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
 [node name="DialogueBox" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -28,9 +61,9 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+path = "res://Dialogue/DialogueExample.json"
 
 [node name="TextureRect" type="TextureRect" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -370.038
@@ -45,7 +78,7 @@ __meta__ = {
 anims/Fade = SubResource( 1 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-self_modulate = Color( 1, 1, 1, 0.643137 )
+self_modulate = Color( 1, 1, 1, 0.494118 )
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -91,4 +124,42 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.02
+
+[node name="YesButton" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -162.5
+margin_top = -117.272
+margin_right = 162.5
+margin_bottom = -87.2718
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "                    YES                    "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoButton" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -164.5
+margin_top = 7.59491
+margin_right = 164.5
+margin_bottom = 37.5949
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "                    NO                     "
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="YesButton" to="." method="_on_YesButton_pressed"]
+[connection signal="pressed" from="NoButton" to="." method="_on_NoButton_pressed"]

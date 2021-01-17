@@ -6,6 +6,8 @@ var data
 var i = 1 
 var done = false
 var first = true
+var question = false
+var over = false
 export (String, FILE) var path = null
 
 
@@ -19,8 +21,7 @@ func _ready():
 	data = parse_json(content)
 	dialogue.close()
 	hide()
-	yield(get_tree(), "idle_frame" )
-	display(i)
+
 
 func _process(delta):
 	if first and visible:
@@ -31,7 +32,7 @@ func _process(delta):
 			if not done:
 				speechLabel.visible_characters = data[str(i)].get("text").length()
 				done = true
-			else:
+			elif not question:
 				i += 1
 				speechLabel.visible_characters = 0
 				display(i)
@@ -50,7 +51,15 @@ func display(message_number):
 			sprite = Pickles.texture_store
 		done = false
 		$Timer.start()
+		if data[str(message_number)].get("Question"):
+			$YesButton.show()
+			$NoButton.show()
+			question = true
 	else:
+		i = -1
+		hide()
+		emit_signal("dialogue_over")
+	if over:
 		i = -1
 		hide()
 		emit_signal("dialogue_over")
@@ -60,3 +69,23 @@ func _on_Timer_timeout():
 	if i != -1:
 		if speechLabel.visible_characters == data[str(i)].get("text").length():
 			done = true
+
+
+func _on_YesButton_pressed():
+	$YesButton.hide()
+	$NoButton.hide()
+	question = false
+	i += 1
+	speechLabel.visible_characters = 0
+	display(i)
+	over = true
+
+
+func _on_NoButton_pressed():
+	$YesButton.hide()
+	$NoButton.hide()
+	i += 2
+	speechLabel.visible_characters = 0
+	display(i)
+	question = false
+

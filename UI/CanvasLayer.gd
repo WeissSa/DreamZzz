@@ -10,7 +10,7 @@ func respawn():
 	
 
 func game_over():
-	$GameOver.popup_centered()
+	$GameOver.show()
 	$GameOver/CenterContainer/AnimatedSprite.frame = 0
 	$game_over.playing = true
 

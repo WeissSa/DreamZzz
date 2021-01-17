@@ -75,12 +75,13 @@ anims/ScreenWipe = SubResource( 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
-[node name="GameOver" type="Popup" parent="."]
+[node name="GameOver" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 12 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="GameOver"]
