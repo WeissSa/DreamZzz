@@ -8,6 +8,9 @@ var texture_store
 var path = "res://Player/Pickle/sprites/eyeball.png"
 onready var Player = get_node("/root").find_node("Player", true, false)
 
+
+var cooldown = true
+
 func _ready():
 	randomize()
 	randomize_timer()
@@ -33,15 +36,21 @@ func _physics_process(delta):
 		dir = false
 	elif Player.motion.x < 0 and !Player.sliding:
 		dir = true
-	else:
+	elif Player.motion.x == 0:
 		dir = $CurrentSprite.flip_h
+	else:
+		dir = !$CurrentSprite.flip_h
 	move(dir)
-	if motion.x > 0:
-		$CurrentSprite.flip_h = false
-		$NextSprite.flip_h = false
-	elif motion.x < 0:
+	if motion.x < 0 and cooldown:
 		$CurrentSprite.flip_h = true
 		$NextSprite.flip_h = true
+		cooldown = false
+		$Cooldown.start()
+	elif cooldown:
+		$CurrentSprite.flip_h = false
+		$NextSprite.flip_h = false
+		cooldown = false
+		$Cooldown.start()
 	
 	
 	move_and_slide(motion, Vector2.UP) 
@@ -54,7 +63,7 @@ func move(left):
 		destinationX = Player.global_position.x - 30
 	else:
 		destinationX = Player.global_position.x + 30
-	var dirX = (destinationX - position.x) * SPEED
+	var dirX = (destinationX - position.x) * SPEED + 10
 	var dirY = Player.position.y - position.y - (randi() % 60 - 40) - 10
 	motion = Vector2(dirX, dirY)
 
@@ -69,3 +78,7 @@ func _on_Morpher_animation_finished(anim_name):
 	$CurrentSprite.modulate = Color("ffffff")
 	$NextSprite.modulate = Color("00ffffff")
 	randomize_timer()
+
+
+func _on_Cooldown_timeout():
+	cooldown = true

@@ -51,5 +51,9 @@ one_shot = true
 
 [node name="Morpher" type="AnimationPlayer" parent="."]
 anims/Morph = SubResource( 1 )
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.5
 [connection signal="timeout" from="Morph" to="." method="_on_Morph_timeout"]
 [connection signal="animation_finished" from="Morpher" to="." method="_on_Morpher_animation_finished"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]

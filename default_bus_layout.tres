@@ -17,7 +17,7 @@ mode = 4
 drive = 0.3
 post_gain = -9.09
 
-[sub_resource type="AudioEffectChorus" id=5]
+[sub_resource type="AudioEffectChorus" id=4]
 resource_name = "Chorus"
 voice_count = 3
 dry = 0.13
@@ -29,7 +29,7 @@ voice/3/level_db = 0.0
 voice/3/cutoff_hz = 16000.0
 voice/3/pan = 0.0
 
-[sub_resource type="AudioEffectPhaser" id=6]
+[sub_resource type="AudioEffectPhaser" id=5]
 resource_name = "Phaser"
 range_min_hz = 2767.77
 range_max_hz = 5285.63
@@ -37,13 +37,13 @@ rate_hz = 2.985
 feedback = 0.4
 depth = 0.1
 
-[sub_resource type="AudioEffectNotchFilter" id=7]
+[sub_resource type="AudioEffectNotchFilter" id=6]
 resource_name = "NotchFilter"
 resonance = 1.0
 gain = 1.19
 db = 3
 
-[sub_resource type="AudioEffectEQ6" id=8]
+[sub_resource type="AudioEffectEQ6" id=7]
 resource_name = "EQ6"
 band_db/32_hz = -27.2
 band_db/100_hz = -9.3
@@ -95,11 +95,11 @@ bus/6/volume_db = 0.662756
 bus/6/send = "SFX"
 bus/6/effect/0/effect = SubResource( 3 )
 bus/6/effect/0/enabled = true
-bus/6/effect/1/effect = SubResource( 5 )
+bus/6/effect/1/effect = SubResource( 4 )
 bus/6/effect/1/enabled = true
-bus/6/effect/2/effect = SubResource( 6 )
+bus/6/effect/2/effect = SubResource( 5 )
 bus/6/effect/2/enabled = true
-bus/6/effect/3/effect = SubResource( 7 )
+bus/6/effect/3/effect = SubResource( 6 )
 bus/6/effect/3/enabled = true
-bus/6/effect/4/effect = SubResource( 8 )
+bus/6/effect/4/effect = SubResource( 7 )
 bus/6/effect/4/enabled = true
