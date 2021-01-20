@@ -111,7 +111,6 @@ text = "Back"
 [node name="AudioSettings" parent="." instance=ExtResource( 3 )]
 
 [node name="KeyBindings" parent="." instance=ExtResource( 4 )]
-visible = false
 
 [node name="VideoSettings" parent="." instance=ExtResource( 5 )]
 visible = false

@@ -12,6 +12,9 @@ export (String, FILE) var path = null
 
 
 signal dialogue_over
+signal yes
+signal no
+
 
 func _ready():
 	speechLabel.visible_characters = 0
@@ -26,6 +29,7 @@ func _ready():
 func _process(delta):
 	if first and visible:
 		display(i)
+		speechLabel.visible_characters = 0
 		first = false
 	if visible:
 		if Input.is_action_just_pressed("action") or Input.is_action_just_pressed("attack"):
@@ -36,6 +40,7 @@ func _process(delta):
 				i += 1
 				speechLabel.visible_characters = 0
 				display(i)
+
 
 
 func display(message_number):
@@ -51,6 +56,7 @@ func display(message_number):
 			sprite = Pickles.texture_store
 		done = false
 		$Timer.start()
+		speechLabel.visible_characters = 0
 		if data[str(message_number)].get("Question"):
 			$YesButton.show()
 			$NoButton.show()
@@ -79,6 +85,7 @@ func _on_YesButton_pressed():
 	speechLabel.visible_characters = 0
 	display(i)
 	over = true
+	emit_signal("yes")
 
 
 func _on_NoButton_pressed():
@@ -88,4 +95,5 @@ func _on_NoButton_pressed():
 	speechLabel.visible_characters = 0
 	display(i)
 	question = false
+	emit_signal("no")
 
