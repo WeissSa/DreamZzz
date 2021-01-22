@@ -1,6 +1,6 @@
 extends "res://Entities/Entity.gd"
 
-const is_player = true
+
 const JUMP = -700
 const CHAIN_PULL = 60
 var friction = 90
