@@ -8,7 +8,6 @@ func _ready():
 func _on_HookShotPowerup_body_entered(body):
 	if body.collision_layer == 1 and visible == true:
 		body.jump_count -= 1
-		body.change_color()
 		$Particles2D.emitting = true
 		$ParticleTimer.start()
 		$AudioStreamPlayer.play()

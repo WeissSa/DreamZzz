@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Player/Run/adventurer-run2-03.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -17,8 +17,8 @@
 [ext_resource path="res://Player/Run/adventurer-run2-02.png" type="Texture" id=15]
 [ext_resource path="res://Player/Run/adventurer-run2-05.png" type="Texture" id=16]
 [ext_resource path="res://Player/Run/adventurer-run2-00.png" type="Texture" id=17]
-[ext_resource path="res://Player/WallSlide/adventurer-wall-slide-01.png" type="Texture" id=18]
-[ext_resource path="res://Player/WallSlide/adventurer-wall-slide-00.png" type="Texture" id=19]
+[ext_resource path="res://Player/WallSlide/adventurer-crnr-clmb-03.png" type="Texture" id=18]
+[ext_resource path="res://Player/WallSlide/adventurer-crnr-clmb-04.png" type="Texture" id=19]
 [ext_resource path="res://SFX/SFX_-_bow_release_01.ogg" type="AudioStream" id=20]
 [ext_resource path="res://UI/CanvasLayer.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Objects/Light.tscn" type="PackedScene" id=22]
@@ -41,6 +41,11 @@
 [ext_resource path="res://Player/Cast/adventurer-cast-01.png" type="Texture" id=39]
 [ext_resource path="res://Player/atk/adventurer-bow-jump-05.png" type="Texture" id=40]
 [ext_resource path="res://Player/atk/adventurer-bow-jump-01.png" type="Texture" id=41]
+[ext_resource path="res://Player/WallSlide/adventurer-crnr-clmb-02.png" type="Texture" id=42]
+[ext_resource path="res://Player/WallSlide/adventurer-crnr-clmb-00.png" type="Texture" id=43]
+[ext_resource path="res://Player/WallSlide/adventurer-crnr-clmb-01.png" type="Texture" id=44]
+[ext_resource path="res://Player/WallSlide/adventurer-wall-slide-01.png" type="Texture" id=45]
+[ext_resource path="res://Player/WallSlide/adventurer-wall-slide-00.png" type="Texture" id=46]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.22855, 1.53553 )
@@ -60,10 +65,20 @@ animations = [ {
 "name": "Jump",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 32 ), ExtResource( 41 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 40 ) ],
+"loop": false,
+"name": "AirAttack",
+"speed": 20.0
+}, {
 "frames": [ ExtResource( 4 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "Fall",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "WallClimb",
+"speed": 24.0
 }, {
 "frames": [ ExtResource( 37 ), ExtResource( 39 ), ExtResource( 38 ) ],
 "loop": false,
@@ -75,20 +90,15 @@ animations = [ {
 "name": "Run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 32 ), ExtResource( 41 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 40 ) ],
-"loop": false,
-"name": "AirAttack",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "WallJump",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 27 ) ],
 "loop": false,
 "name": "Attack",
 "speed": 30.0
+}, {
+"frames": [ ExtResource( 46 ), ExtResource( 45 ) ],
+"loop": true,
+"name": "Hang",
+"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=4]
@@ -142,9 +152,25 @@ shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
-animation = "idle"
-frame = 3
-playing = true
+animation = "Hang"
+
+[node name="Checkers" type="Node2D" parent="."]
+
+[node name="RightWallRaycast3" type="RayCast2D" parent="Checkers"]
+position = Vector2( 3.05978, -15.9479 )
+scale = Vector2( 0.2, 0.2 )
+enabled = true
+cast_to = Vector2( 30, 0 )
+collision_mask = 2
+collide_with_areas = true
+
+[node name="LeftWallRaycast3" type="RayCast2D" parent="Checkers"]
+position = Vector2( -3.48068, -15.9479 )
+scale = Vector2( 0.2, 0.2 )
+enabled = true
+cast_to = Vector2( -30, 0 )
+collision_mask = 2
+collide_with_areas = true
 
 [node name="WallRaycast" type="Node2D" parent="."]
 
@@ -219,10 +245,6 @@ bus = "SFX"
 wait_time = 0.1
 one_shot = true
 
-[node name="GracePeriod" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
-
 [node name="HookShotCooldown" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
@@ -236,7 +258,6 @@ wait_time = 0.8
 one_shot = true
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="DrawString" to="." method="_on_DrawString_timeout"]
-[connection signal="timeout" from="GracePeriod" to="." method="_on_GracePeriod_timeout"]
 [connection signal="timeout" from="HookShotCooldown" to="." method="_on_HookShotCooldown_timeout"]
 [connection signal="timeout" from="KnockbackTimeout" to="." method="_on_KnockbackTimeout_timeout"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]

@@ -2,22 +2,23 @@ extends "res://Entities/Entity.gd"
 
 
 const JUMP = -700
-const CHAIN_PULL = 60
+const CHAIN_PULL = 70
 var friction = 90
-var jump_count = 0
+var jump_count = 1
 var on_ground
 var jumpBoost = -1100
 var fan_boost = 60
 var hookshottable = true
 var cooldown = true
 var knockbacked = false
-export var slide_speed = 40
+export var climb_speed = -200
+var tired = 0
 
 var animate_cancel = false
 
 var detectable = true
 var attacking = false
-var sliding
+var sliding = false
 var chain_vel = Vector2(0,0)
 
 var respawn_point = Vector2()
@@ -50,6 +51,7 @@ func _physics_process(delta):
 			chain_vel = Vector2(0,0)
 		if not is_on_ceiling():
 			motion += chain_vel
+		motion.y = clamp(motion.y, -1100, 1100)
 		move_and_slide(motion, UP)
 	else:
 		motion.x = 0
@@ -105,41 +107,47 @@ func move():
 
 func jump():
 	if Input.is_action_just_pressed("jump"):
-		if jump_count < 2 and not $HookShot.hooked and not $HookShot.flying:
+		if jump_count < 1 and not $HookShot.hooked and not $HookShot.flying:
 			jump_count += 1
 			motion.y = 0
 			motion.y += JUMP
 			on_ground = false
 			$JumpSound.play()
-			change_color()
-			$AnimatedSprite.modulate = colors[jump_count]
 
-func change_color():
-	$AnimatedSprite.modulate = colors[jump_count]
 
 
 func wall_jump():
-	if not (is_on_floor() or motion.y == GRAVITY) and not animate_cancel:
+	if not animate_cancel:
 		if check_wall(left_wall_raycasts):
+			$AnimatedSprite.offset.x = 2
 			sliding = true
-			motion.y = slide_speed
-			$AnimatedSprite.play("WallJump")
+			motion.y = tired
 			$AnimatedSprite.flip_h = true
-			if Input.is_action_just_pressed("jump"):
-				motion.y = JUMP
-				motion.x = speed*2
-				$JumpSound.play()
-				sliding = false
+			if Input.is_action_pressed("jump"):
+				motion.y = climb_speed
+				if !$Checkers/LeftWallRaycast3.is_colliding():
+					motion.y = -500
+			elif Input.is_action_pressed("down"):
+				motion.y = -climb_speed
 		elif check_wall(right_wall_raycasts):
+			$AnimatedSprite.offset.x = -2
 			sliding = true
 			$AnimatedSprite.flip_h = false
-			motion.y  = slide_speed
-			$AnimatedSprite.play("WallJump")
-			if Input.is_action_just_pressed("jump"):
-				motion.y = JUMP
-				motion.x = -speed*2
-				$JumpSound.play()
-				sliding = false
+			motion.y  = tired
+			if Input.is_action_pressed("jump"):
+				motion.y = climb_speed
+				if !$Checkers/RightWallRaycast3.is_colliding():
+					motion.y = -500
+			elif Input.is_action_pressed("down"):
+				motion.y = -climb_speed
+		else:
+			$AnimatedSprite.offset.x = 0
+			sliding = false
+		if motion.y == 0 and sliding:
+			$AnimatedSprite.playing = false
+			$AnimatedSprite.play("Hang")
+		else:
+			$AnimatedSprite.playing = true
 
 func check_wall(Raycast):
 	for caster in Raycast.get_children():
@@ -150,12 +158,12 @@ func check_wall(Raycast):
 func apply_gravity():
 	if is_on_floor():
 		if not on_ground:
+			tired = 0
 			sliding = false
 			on_ground = true
-			jump_count = 0
+			jump_count = 1
 			motion.y = 0
 			knockbacked = false
-			change_color()
 			if not (hookshottable or $HookShot.hooked):
 				hookshottable = true
 				if cooldown:
@@ -164,42 +172,45 @@ func apply_gravity():
 	else:
 		if on_ground == true:
 			on_ground = false
-			$GracePeriod.start()
 		motion.y += GRAVITY
 	if is_on_fan:
 		motion.y -= fan_boost
 
-func _on_GracePeriod_timeout():
-	if not is_on_floor():
-		jump_count = 1
+
 
 func animate():
-	if motion.x > 0:
-		$AnimatedSprite.flip_h = false
-	elif motion.x < 0:
-		$AnimatedSprite.flip_h = true
-	
-	if (is_on_floor() or motion.y == GRAVITY) and attacking and not animate_cancel:
-		$AnimatedSprite.play("Attack")
-		animate_cancel  = true
-	elif attacking:
-		$AnimatedSprite.play("AirAttack")
-		animate_cancel  = true
-	elif motion.x != 0 and (motion.y == 0 or motion.y == GRAVITY or on_ground):
-		$AnimatedSprite.play("Run")
-	elif motion.y > 0 and $AnimatedSprite.animation != "idle" and $AnimatedSprite.animation != "Run" and not (is_on_floor() or motion.y == GRAVITY):
-		$AnimatedSprite.play("Fall")
-	elif motion.y < 0:
-		$AnimatedSprite.play("Jump")
-	else:
-		$AnimatedSprite.play("idle")
+	if not sliding:
+		if motion.x > 0:
+			$AnimatedSprite.flip_h = false
+		elif motion.x < 0:
+			$AnimatedSprite.flip_h = true
 		
+		if (is_on_floor() or motion.y == GRAVITY) and attacking and not animate_cancel:
+			$AnimatedSprite.play("Attack")
+			animate_cancel  = true
+		elif attacking:
+			$AnimatedSprite.play("AirAttack")
+			animate_cancel  = true
+		elif motion.x != 0 and (motion.y == 0 or motion.y == GRAVITY or on_ground):
+			$AnimatedSprite.play("Run")
+		elif motion.y > 0 and $AnimatedSprite.animation != "idle" and $AnimatedSprite.animation != "Run" and not (is_on_floor() or motion.y == GRAVITY):
+			$AnimatedSprite.play("Fall")
+		elif motion.y < 0:
+			$AnimatedSprite.play("Jump")
+		else:
+			$AnimatedSprite.play("idle")
+	else:
+		if sliding:
+			$AnimatedSprite.play('WallClimb')
+		elif !sliding:
+			$SlideAnimation.stop()
 	
 	
 func jumpPad():
 	motion.y = jumpBoost
 	jump_count = 1
-	change_color()
+	hookshottable = true
+	get_tree().call_group("UI", "hookshot_track", cooldown)
 	
 func bottomless_void():
 	health -= 1
@@ -234,7 +245,7 @@ func hookshot():
 		chain_vel.y *= 0.55
 	else:
 		chain_vel *= 1.45
-	if sign(chain_vel.x) != sign(motion.x):
+	if sign(chain_vel.x) == -sign(motion.x):
 		chain_vel.x *= 0.3
 	if abs($HookShot.tip.x - position.x) > 500:
 		release()
@@ -265,3 +276,10 @@ func _on_KnockbackTimeout_timeout():
 
 func _on_RespawnTimer_timeout():
 	get_tree().call_group("entities", "pause")
+
+
+
+
+
+
+	
