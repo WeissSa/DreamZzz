@@ -75,20 +75,15 @@ animations = [ {
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 18 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "WallClimb",
-"speed": 24.0
-}, {
 "frames": [ ExtResource( 37 ), ExtResource( 39 ), ExtResource( 38 ) ],
 "loop": false,
 "name": "Cast",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
-"name": "Run",
-"speed": 10.0
+"name": "WallClimb",
+"speed": 24.0
 }, {
 "frames": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 27 ) ],
 "loop": false,
@@ -99,6 +94,11 @@ animations = [ {
 "loop": true,
 "name": "Hang",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
 } ]
 
 [sub_resource type="Animation" id=4]
@@ -177,17 +177,7 @@ collide_with_areas = true
 [node name="Left" type="Node2D" parent="WallRaycast"]
 
 [node name="LeftWallRaycast" type="RayCast2D" parent="WallRaycast/Left"]
-visible = false
-position = Vector2( -4.77046, -2.94646 )
-scale = Vector2( 0.2, 0.2 )
-enabled = true
-cast_to = Vector2( -30, 0 )
-collision_mask = 2
-collide_with_areas = true
-
-[node name="LeftWallRaycast2" type="RayCast2D" parent="WallRaycast/Left"]
-visible = false
-position = Vector2( -4.77046, 5.9005 )
+position = Vector2( -4.77046, -6.71654 )
 scale = Vector2( 0.2, 0.2 )
 enabled = true
 cast_to = Vector2( -30, 0 )
@@ -197,17 +187,7 @@ collide_with_areas = true
 [node name="Right" type="Node2D" parent="WallRaycast"]
 
 [node name="RightWallRaycast" type="RayCast2D" parent="WallRaycast/Right"]
-visible = false
-position = Vector2( 4.77, -2.946 )
-scale = Vector2( 0.2, 0.2 )
-enabled = true
-cast_to = Vector2( 30, 0 )
-collision_mask = 2
-collide_with_areas = true
-
-[node name="RightWallRaycast2" type="RayCast2D" parent="WallRaycast/Right"]
-visible = false
-position = Vector2( 4.77, 5.9005 )
+position = Vector2( 4.77, -6.71608 )
 scale = Vector2( 0.2, 0.2 )
 enabled = true
 cast_to = Vector2( 30, 0 )

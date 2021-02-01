@@ -2,7 +2,6 @@ extends Node
 
 func generate_mult():
 	var view = get_viewport().size
-	print (str(view.x) + "  " + str(view.y))
 	var mul = 0.5
 	if view.x ==1280:
 		mul = 0.41

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Objects/EndLevel/EndLevel.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 3.79022
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.11578, 0.0523224, 0.248047, 1, 0.459897, 0.229111, 0.751953, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 1
+emission_sphere_radius = 5.0
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+gravity = Vector3( 5, 20, 0 )
+angular_velocity = 1.0
+orbit_velocity = 5.0
+orbit_velocity_random = 1.0
+radial_accel = 18.39
+tangential_accel = 100.0
+damping = 50.0
+scale = 3.0
+color_ramp = SubResource( 3 )
+
+[node name="EndLevel" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+scale = Vector2( 1.5, 1.5 )
+amount = 128
+process_material = SubResource( 4 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

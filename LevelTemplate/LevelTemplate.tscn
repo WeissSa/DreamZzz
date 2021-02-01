@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TileSets/NightmareTiles.tres" type="TileSet" id=2]
 [ext_resource path="res://LevelTemplate/LevelTemplate.gd" type="Script" id=3]
+[ext_resource path="res://Objects/EndLevel/EndLevel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/CanvasLayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/BottomlessVoid.tscn" type="PackedScene" id=6]
 [ext_resource path="res://LevelTemplate/Arrows.gd" type="Script" id=10]
@@ -43,6 +44,10 @@ scale = Vector2( 7.01207, 0.913154 )
 [node name="JumpPads" type="Node" parent="Objects in Front"]
 
 [node name="Spikes" type="Node" parent="Objects in Front"]
+
+[node name="EndLevel" parent="Objects in Front" instance=ExtResource( 4 )]
+position = Vector2( 171.349, -40.3174 )
+scale = Vector2( 2, 2 )
 
 [node name="Enemies" type="Node" parent="."]
 
