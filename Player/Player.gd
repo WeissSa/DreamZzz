@@ -11,6 +11,7 @@ var fan_boost = 60
 var hookshottable = true
 var cooldown = true
 var knockbacked = false
+var climbing = false
 export var climb_speed = -200
 var tired = 0
 
@@ -26,7 +27,7 @@ var respawn_point = Vector2()
 onready var left_wall_raycasts = $WallRaycast/Left
 onready var right_wall_raycasts = $WallRaycast/Right
 
-var colors = [Color("ffffff"), Color("ffffff"), Color("21297c")]
+var colors = [Color("ffffff"), Color("6369ab"), Color("21297c")]
 
 
 
@@ -119,26 +120,32 @@ func jump():
 func wall_jump():
 	if not animate_cancel:
 		if check_wall(left_wall_raycasts):
+			if not climbing and tired == 0:
+				$ClimbTime.start()
 			$AnimatedSprite.offset.x = 2
 			sliding = true
+			climbing = true
 			motion.y = tired
 			$AnimatedSprite.flip_h = true
-			if Input.is_action_pressed("jump"):
+			if Input.is_action_pressed("jump") and tired != 75:
 				motion.y = climb_speed
 				if !$Checkers/LeftWallRaycast3.is_colliding():
 					motion.y = -500
-			elif Input.is_action_pressed("down"):
+			elif Input.is_action_pressed("down") and tired != 75:
 				motion.y = -climb_speed
 		elif check_wall(right_wall_raycasts):
+			if not climbing and tired == 0:
+				$ClimbTime.start()
 			$AnimatedSprite.offset.x = -2
 			sliding = true
+			climbing = true
 			$AnimatedSprite.flip_h = false
 			motion.y  = tired
-			if Input.is_action_pressed("jump"):
+			if Input.is_action_pressed("jump") and tired != 75:
 				motion.y = climb_speed
 				if !$Checkers/RightWallRaycast3.is_colliding():
 					motion.y = -500
-			elif Input.is_action_pressed("down"):
+			elif Input.is_action_pressed("down") and tired != 75:
 				motion.y = -climb_speed
 		else:
 			$AnimatedSprite.offset.x = 0
@@ -160,9 +167,11 @@ func apply_gravity():
 		if not on_ground:
 			tired = 0
 			sliding = false
+			climbing = false
 			on_ground = true
 			jump_count = 1
 			motion.y = 0
+			$AnimatedSprite.modulate = Color(colors[0])
 			knockbacked = false
 			if not (hookshottable or $HookShot.hooked):
 				hookshottable = true
@@ -204,6 +213,13 @@ func animate():
 			$AnimatedSprite.play('WallClimb')
 		elif !sliding:
 			$SlideAnimation.stop()
+			
+		if $ClimbTime.time_left < 3 and $ClimbTime.time_left > 0.2:
+			$AnimatedSprite.modulate = Color(colors[1])
+		elif $ClimbTime.time_left < 0.2 and sliding:
+			$AnimatedSprite.modulate = Color(colors[2])
+		else:
+			$AnimatedSprite.modulate = Color(colors[0])
 	
 	
 func jumpPad():
@@ -278,8 +294,5 @@ func _on_RespawnTimer_timeout():
 	get_tree().call_group("entities", "pause")
 
 
-
-
-
-
-	
+func _on_ClimbTime_timeout():
+	tired = 75

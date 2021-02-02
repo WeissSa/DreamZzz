@@ -12,6 +12,9 @@ modulate = Color( 0.968278, 0.996661, 0.99523, 1 )
 position = Vector2( 0, 0.38013 )
 script = ExtResource( 3 )
 
+[node name="Particles2D" parent="HookShotPowerup" index="0"]
+amount = 8
+
 [node name="Sprite" parent="HookShotPowerup/Sprite" index="0"]
 texture = ExtResource( 2 )
 
