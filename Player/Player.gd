@@ -22,7 +22,7 @@ var attacking = false
 var sliding = false
 var chain_vel = Vector2(0,0)
 
-var respawn_point = Vector2()
+var respawn_point = Vector2(30,-40)
 
 onready var left_wall_raycasts = $WallRaycast/Left
 onready var right_wall_raycasts = $WallRaycast/Right
@@ -258,11 +258,11 @@ func check_death():
 func hookshot():
 	chain_vel = to_local($HookShot.tip).normalized() * CHAIN_PULL
 	if chain_vel.y > 0:
-		chain_vel.y *= 0.55
+		chain_vel.y *= 0.45
 	else:
-		chain_vel *= 1.45
+		chain_vel *= 1.55
 	if sign(chain_vel.x) == -sign(motion.x):
-		chain_vel.x *= 0.3
+		chain_vel.x *= 0.4
 	if abs($HookShot.tip.x - position.x) > 500:
 		release()
 

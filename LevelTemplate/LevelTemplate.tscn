@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TileSets/NightmareTiles.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Objects/EndLevel/EndLevel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/CanvasLayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/BottomlessVoid.tscn" type="PackedScene" id=6]
+[ext_resource path="res://TileSets/Decoration/Mushrooms.tscn" type="PackedScene" id=7]
 [ext_resource path="res://LevelTemplate/Arrows.gd" type="Script" id=10]
 [ext_resource path="res://LevelTemplate/Elfen_Lied_Loop.ogg" type="AudioStream" id=12]
 [ext_resource path="res://LevelTemplate/cloudLayer1.png" type="Texture" id=13]
@@ -18,6 +19,18 @@
 script = ExtResource( 3 )
 
 [node name="Tiles" type="Node" parent="."]
+
+[node name="Shrooms" type="Node" parent="Tiles"]
+
+[node name="Mushrooms" parent="Tiles/Shrooms" instance=ExtResource( 7 )]
+position = Vector2( 4.12035, -22.1 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="Mush1" parent="Tiles/Shrooms/Mushrooms" index="0"]
+visible = true
+
+[node name="Mush3" parent="Tiles/Shrooms/Mushrooms" index="2"]
+visible = false
 
 [node name="Platforms" type="TileMap" parent="Tiles"]
 scale = Vector2( 0.5, 0.5 )
@@ -158,3 +171,5 @@ bus = "Music"
 script = ExtResource( 18 )
 
 [node name="Events" type="Node" parent="."]
+
+[editable path="Tiles/Shrooms/Mushrooms"]
