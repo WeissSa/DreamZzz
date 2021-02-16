@@ -7,7 +7,7 @@
 [ext_resource path="res://UI/CanvasLayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/BottomlessVoid.tscn" type="PackedScene" id=6]
 [ext_resource path="res://TileSets/Decoration/Mushrooms.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Backgrounds/Cloudy/Background_D2.png" type="Texture" id=8]
+[ext_resource path="res://Backgrounds/Cloudy/bg_layer1.png" type="Texture" id=8]
 [ext_resource path="res://Backgrounds/Cloudy/Background_Cloud1-export.png" type="Texture" id=9]
 [ext_resource path="res://LevelTemplate/Arrows.gd" type="Script" id=10]
 [ext_resource path="res://Backgrounds/Cloudy/Background_Cloud4-export.png" type="Texture" id=11]
@@ -81,14 +81,12 @@ layer = -1
 scroll_ignore_camera_zoom = true
 
 [node name="Solid" type="ParallaxLayer" parent="Player/Camera2D/ParallaxBackground"]
-motion_scale = Vector2( 0, 0 )
-motion_offset = Vector2( -640, -950 )
+motion_mirroring = Vector2( 2048, 2048 )
 
 [node name="TextureRect" type="TextureRect" parent="Player/Camera2D/ParallaxBackground/Solid"]
 modulate = Color( 0.54902, 0.34902, 0.572549, 1 )
 margin_right = 640.0
 margin_bottom = 640.0
-rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -97,7 +95,7 @@ __meta__ = {
 [node name="Clouds 4" type="ParallaxLayer" parent="Player/Camera2D/ParallaxBackground"]
 modulate = Color( 1, 1, 1, 0.611765 )
 motion_scale = Vector2( 0.6, 0.6 )
-motion_offset = Vector2( -320, -950 )
+motion_offset = Vector2( -320, -800 )
 motion_mirroring = Vector2( 1280, 0 )
 
 [node name="TextureRect" type="TextureRect" parent="Player/Camera2D/ParallaxBackground/Clouds 4"]
@@ -113,7 +111,7 @@ __meta__ = {
 [node name="Clouds 3" type="ParallaxLayer" parent="Player/Camera2D/ParallaxBackground"]
 modulate = Color( 1, 1, 1, 0.611765 )
 motion_scale = Vector2( 0.7, 0.7 )
-motion_offset = Vector2( -320, -950 )
+motion_offset = Vector2( -320, -800 )
 motion_mirroring = Vector2( 1280, 0 )
 
 [node name="TextureRect" type="TextureRect" parent="Player/Camera2D/ParallaxBackground/Clouds 3"]
@@ -128,7 +126,7 @@ __meta__ = {
 [node name="Clouds 2" type="ParallaxLayer" parent="Player/Camera2D/ParallaxBackground"]
 modulate = Color( 1, 1, 1, 0.611765 )
 motion_scale = Vector2( 0.8, 0.8 )
-motion_offset = Vector2( -320, -950 )
+motion_offset = Vector2( -320, -800 )
 motion_mirroring = Vector2( 1280, 0 )
 
 [node name="TextureRect" type="TextureRect" parent="Player/Camera2D/ParallaxBackground/Clouds 2"]
@@ -142,7 +140,7 @@ __meta__ = {
 [node name="Clouds 1" type="ParallaxLayer" parent="Player/Camera2D/ParallaxBackground"]
 modulate = Color( 1, 1, 1, 0.498039 )
 motion_scale = Vector2( 1.1, 1.1 )
-motion_offset = Vector2( -320, -950 )
+motion_offset = Vector2( -320, -800 )
 motion_mirroring = Vector2( 1280, 0 )
 
 [node name="TextureRect" type="TextureRect" parent="Player/Camera2D/ParallaxBackground/Clouds 1"]
