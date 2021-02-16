@@ -202,9 +202,6 @@ position = Vector2( 6177.71, -695.923 )
 [node name="Player" parent="." index="3"]
 position = Vector2( 56.1199, -61.3454 )
 
-[node name="Camera2D" parent="Player" index="17"]
-zoom = Vector2( 0.8, 0.8 )
-
 [node name="JumpPowerup" parent="ObjectsBehind/Powerups" index="0" instance=ExtResource( 6 )]
 position = Vector2( 3236.05, -677.394 )
 
