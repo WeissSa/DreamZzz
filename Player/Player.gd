@@ -150,8 +150,9 @@ func wall_jump():
 		else:
 			$AnimatedSprite.offset.x = 0
 			sliding = false
+			if not tired == 0:
+				$ClimbTime.stop()
 		if motion.y == 0 and sliding:
-			$AnimatedSprite.playing = false
 			$AnimatedSprite.play("Hang")
 		else:
 			$AnimatedSprite.playing = true
