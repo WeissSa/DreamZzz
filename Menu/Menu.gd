@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	pass
+	$Music.stop()
 
 
 func _on_PlayButton_pressed():
@@ -34,3 +34,7 @@ func _on_LevelTimer_timeout():
 
 func _on_Settings_click():
 	$Click.play()
+
+
+func _on_Opening_music_start():
+	$Music.play()

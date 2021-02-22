@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Creature_Birdlike_001_cry_02.ogg-7b75546096b609a668d6ea26a828226a.oggstr"
+
+[deps]
+
+source_file="res://Menu/Opening/Creature_Birdlike_001_cry_02.ogg"
+dest_files=[ "res://.import/Creature_Birdlike_001_cry_02.ogg-7b75546096b609a668d6ea26a828226a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
