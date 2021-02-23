@@ -3,7 +3,6 @@ extends Node2D
 export (String) var  send_to
 
 func _on_Area2D_body_entered(body):
-	body.motion = Vector2(0,0)
 	end_level()
 	save_game()
 

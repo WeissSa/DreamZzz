@@ -265,7 +265,7 @@ func hookshot():
 		chain_vel *= 1.55
 	if sign(chain_vel.x) == -sign(motion.x):
 		chain_vel.x *= 0.4
-	if abs($HookShot.tip.x - position.x) > 500:
+	if abs($HookShot.tip.x - position.x) > 500 or abs($HookShot.tip.y - position.y) > 450:
 		release()
 
 func _on_AnimatedSprite_animation_finished():

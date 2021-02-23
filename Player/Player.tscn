@@ -67,11 +67,6 @@ animations = [ {
 "name": "WallClimb",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 27 ) ],
 "loop": false,
 "name": "Attack",
@@ -91,6 +86,11 @@ animations = [ {
 "loop": true,
 "name": "Run",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 37 ), ExtResource( 39 ), ExtResource( 38 ) ],
 "loop": false,
