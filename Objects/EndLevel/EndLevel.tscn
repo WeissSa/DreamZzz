@@ -28,6 +28,7 @@ color_ramp = SubResource( 3 )
 
 [node name="EndLevel" type="Node2D"]
 script = ExtResource( 1 )
+send_to = "1"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

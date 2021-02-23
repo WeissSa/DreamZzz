@@ -25,6 +25,7 @@ func check_death():
 
 func spawn():
 	position = initial
+	$AnimatedSprite.flip_h = false
 	health = 1
 	show()
 	modulate = Color("ffffff")
@@ -43,7 +44,7 @@ func move():
 
 
 func _on_Area2D_body_entered(body):
-	if body.collision_layer == 1:
+	if body.collision_layer == 1 and not body.knockbacked:
 		body.health -= 1
 		body.check_death()
 		get_tree().call_group("UI", "take_damage")

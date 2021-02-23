@@ -1,0 +1,32 @@
+{
+  "1": {
+    "text": "Before I give you a little more space to adjust there's one thing you need to learn.",
+    "person": "Pickles",
+    "Question":  false
+  },
+  "2": {
+    "text": "Just ONE?!?!?! You STILL haven't answered any of my questions Pickles (if that is even your real name).",
+    "person": "Player",
+    "Question": false
+  },
+  "3": {
+    "text": "In due time, kid... In due time.",
+    "person": "Pickles",
+     "Question":  false
+  },
+  "4": {
+    "text": "Look I just want to make sure you don't die. Press the attack button to take out your bow. Not everyone is looking out for you like me.",
+    "person": "Pickles",
+    "Question": false
+  },
+  "5": {
+    "text": ".... Bow? I've never shot anything more dangerous that a turkey baster before.",
+    "person": "Player",
+    "Question": false
+  },
+  "6": {
+    "text": "You're gonna be a natural. Trust me.",
+    "person": "Pickles",
+    "Question": false
+  }
+}

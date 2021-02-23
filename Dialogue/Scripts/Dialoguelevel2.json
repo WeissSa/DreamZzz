@@ -1,0 +1,32 @@
+{
+  "1": {
+    "text": "To survive in this place you're gonna need to learn to climb.",
+    "person": "Pickles",
+    "Question":  false
+  },
+  "2": {
+    "text": "I've never been much of an athlete.",
+    "person": "Player",
+    "Question": false
+  },
+  "3": {
+    "text": "It's easy here, everyone can do it! I'm basically climbing the ether right now!",
+    "person": "Pickles",
+     "Question":  false
+  },
+  "4": {
+    "text": "Just go next to a wall and try to move up or down. But be careful that you don't run out of time!",
+    "person": "Pickles",
+    "Question": false
+  },
+  "5": {
+    "text": "What's ether... oh god I have so many questions.",
+    "person": "Player",
+    "Question": false
+  },
+  "6": {
+    "text": "It's best to just play along, kid.",
+    "person": "Pickles",
+    "Question": false
+  }
+}

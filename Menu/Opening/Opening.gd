@@ -10,5 +10,5 @@ func _on_Timer_timeout():
 
 
 func _on_Timer2_timeout():
-	hide()
+	$AnimationPlayer.play("Fade")
 	emit_signal("music_start")

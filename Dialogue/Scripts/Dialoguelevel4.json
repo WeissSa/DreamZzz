@@ -1,0 +1,42 @@
+{
+  "1": {
+    "text": "The mushrooms... they're glowing.",
+    "person": "Player",
+    "Question":  false
+  },
+  "2": {
+    "text": "Beautiful isn't it. Things here often take on an extra ethereal quality to them.",
+    "person": "Pickles",
+    "Question": false
+  },
+  "3": {
+    "text": "It just doesn't feel real to me.",
+    "person": "Player",
+     "Question":  false
+  },
+  "4": {
+    "text": "Who says it is.",
+    "person": "Pickles",
+    "Question": false
+  },
+  "5": {
+    "text": "I still don't understand who you are... or why you shape shift.",
+    "person": "Player",
+    "Question": false
+  },
+  "6": {
+    "text": "Do you really want to?",
+    "person": "Pickles",
+    "Question": true
+  },
+  "7": {
+    "text": "Let's just say my existence isn't exactly literal. But I'm here to help, so you have to start trusting me.",
+    "person": "Pickles",
+    "Question": false
+  },
+  "8": {
+    "text": "So you want to stay ignorant. Huh.. Not what I expected from you, kid. But I aint arguing. Let's get going.",
+    "person": "Pickles",
+    "Question": false
+  }
+}

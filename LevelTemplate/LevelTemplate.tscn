@@ -56,9 +56,9 @@ scale = Vector2( 7.01207, 0.913154 )
 
 [node name="Fans" type="Node" parent="Objects in Front"]
 
-[node name="JumpPads" type="Node" parent="Objects in Front"]
-
 [node name="Spikes" type="Node" parent="Objects in Front"]
+
+[node name="JumpPads" type="Node" parent="Objects in Front"]
 
 [node name="EndLevel" parent="Objects in Front" instance=ExtResource( 4 )]
 position = Vector2( 171.349, -40.3174 )

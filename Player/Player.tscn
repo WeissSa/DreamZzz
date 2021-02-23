@@ -72,6 +72,11 @@ animations = [ {
 "name": "Fall",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 27 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 30.0
+}, {
 "frames": [ ExtResource( 46 ), ExtResource( 45 ) ],
 "loop": true,
 "name": "Hang",
@@ -81,11 +86,6 @@ animations = [ {
 "loop": false,
 "name": "AirAttack",
 "speed": 20.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 27 ) ],
-"loop": false,
-"name": "Attack",
-"speed": 30.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 16 ) ],
 "loop": true,

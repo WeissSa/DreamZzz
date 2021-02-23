@@ -1,9 +1,37 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Menu/Opening/GodotLogo.tres" type="Texture" id=1]
 [ext_resource path="res://Menu/Opening/Opening.gd" type="Script" id=2]
 [ext_resource path="res://Menu/Opening/Creature_Birdlike_001_cry_02.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Menu/DefaultTheme.tres" type="Theme" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fade"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Opening" type="Control"]
 anchor_right = 1.0
@@ -64,5 +92,8 @@ margin_right = 175.0
 margin_bottom = 207.242
 theme = ExtResource( 4 )
 text = "Made in Godot"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fade = SubResource( 1 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

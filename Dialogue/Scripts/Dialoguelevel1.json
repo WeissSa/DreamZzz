@@ -1,0 +1,37 @@
+{
+  "1": {
+    "text": "Hi pal, nice to meet you. I'm Pickles.",
+    "person": "Pickles",
+    "Question":  false
+  },
+  "2": {
+    "text": "Who are you? Where am I? Whats happening?",
+    "person": "Player",
+    "Question": false
+  },
+  "3": {
+    "text": "Well, I just told you. I'm Pickles. Don't worry too much about the other questions. For now focus on making it to the end.",
+    "person": "Pickles",
+     "Question":  false
+  },
+  "4": {
+    "text": "To start out with, aim your crosshair at the ceiling and press left click. See what happens and try to get over this void!",
+    "person": "Pickles",
+    "Question": false
+  },
+  "5": {
+    "text": "I want answers...",
+    "person": "Player",
+    "Question": false
+  },
+  "6": {
+    "text": "Just make sure you touch the ground before you try to swing twice.",
+    "person": "Pickles",
+     "Question":  false
+	},
+  "7": {
+    "text": "And kid... you want answers as much as I do.",
+    "person": "Pickles",
+     "Question":  false
+	}
+}

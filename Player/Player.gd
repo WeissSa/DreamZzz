@@ -167,6 +167,7 @@ func apply_gravity():
 	if is_on_floor():
 		if not on_ground:
 			tired = 0
+			$ClimbTime.wait_time = 3.5
 			sliding = false
 			climbing = false
 			on_ground = true
@@ -274,6 +275,7 @@ func _on_AnimatedSprite_animation_finished():
 func hit():
 	$AnimationPlayer.play("Hit")
 	$HitSound.play()
+	$KnockbackTimeout.start()
 	
 func _on_HookShotCooldown_timeout():
 	cooldown = true

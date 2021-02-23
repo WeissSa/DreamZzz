@@ -29,7 +29,7 @@ func _on_QuitTimer_timeout():
 
 
 func _on_LevelTimer_timeout():
-	get_tree().change_scene("res://levels/TestLevel.tscn")
+	get_tree().change_scene("res://levels/level1.tscn")
 
 
 func _on_Settings_click():
