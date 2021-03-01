@@ -14,7 +14,7 @@ func generate_mult():
 	elif view.x == 1600:
 		mul = 0.34
 	elif view.x == 1920:
-		mul = 0.29
+		mul = 0.28
 	if SaveGame.save_data["Fullscreen"] == true:
-		mul = 0.29
+		mul = 0.28
 	return mul

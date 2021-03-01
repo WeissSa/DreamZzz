@@ -1,0 +1,17 @@
+{
+  "1": {
+    "text": "We've arrived.",
+    "person": "Pickles",
+    "Question":  false
+  },
+  "2": {
+    "text": "Not this again.",
+    "person": "Player",
+    "Question": false
+  },
+  "3": {
+    "text": "With the end of one path a new one reveals itself.",
+    "person": "Pickles",
+     "Question":  false
+  }
+}

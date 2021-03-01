@@ -1,0 +1,17 @@
+{
+  "1": {
+    "text": "We have to get going,",
+    "person": "Pickles",
+    "Question":  false
+  },
+  "2": {
+    "text": "I'm not ready yet.",
+    "person": "Player",
+    "Question": false
+  },
+  "3": {
+    "text": "I'm sorry, you dont have a choice.",
+    "person": "Pickles",
+     "Question":  false
+  }
+}

@@ -857,6 +857,7 @@ position = Vector2( 2113.48, -1151.11 )
 
 [node name="EndLevel" parent="Objects in Front" index="5"]
 position = Vector2( 4254.62, -1286.63 )
+send_to = "5"
 
 [node name="Crow1" parent="Enemies" index="0"]
 position = Vector2( 414.166, -64.8579 )
@@ -874,7 +875,7 @@ position = Vector2( 2605.49, -1390.51 )
 position = Vector2( 2287.63, -1390.51 )
 
 [node name="Player" parent="." index="3"]
-position = Vector2( 680.77, -48.425 )
+position = Vector2( 1076.33, -832.416 )
 
 [node name="CheckPoint" parent="ObjectsBehind/Spawnpoints" index="0"]
 position = Vector2( 931.475, -855.858 )
