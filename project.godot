@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 SaveGame="*res://Scripts/SaveGame.gd"
 HookShotMultiplier="*res://Scripts/HookShotMultiplier.gd"
 DialogueHelper="*res://Dialogue/DialogueHelper.gd"
+Music="*res://Music/Music.tscn"
 
 [display]
 

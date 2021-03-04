@@ -8,26 +8,26 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 4 ) ],
-"loop": false,
-"name": "Squish",
-"speed": 20.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "Squish",
+"speed": 20.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 53.4713, 34.7684 )
+extents = Vector2( 57.5173, 40.3226 )
 
 [sub_resource type="Animation" id=3]
 length = 0.3
 step = 0.01
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 41.8907, 27.5316 )
+extents = Vector2( 51.36, 34.2372 )
 
 [node name="JumpPadRoot" type="Node2D"]
 script = ExtResource( 2 )
@@ -46,7 +46,7 @@ animation = "Idle"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpPad"]
-position = Vector2( -0.49405, -1.46561 )
+position = Vector2( -0.0220957, -0.521747 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="JumpPad"]

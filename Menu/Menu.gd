@@ -1,8 +1,7 @@
 extends Control
 
 func _ready():
-	$Music.stop()
-
+	pass
 
 func _on_PlayButton_pressed():
 	$Click.play()
@@ -37,4 +36,4 @@ func _on_Settings_click():
 
 
 func _on_Opening_music_start():
-	$Music.play()
+	$MusicPlayer.change_music(name)

@@ -45,8 +45,8 @@ func _process(delta):
 
 func display(message_number):
 	if message_number <= data.size():
-		speechLabel.text = data[str(message_number)].get("text")
-		nameLabel.text = data[str(message_number)].get("person")
+		speechLabel.bbcode_text = data[str(message_number)].get("text")
+		nameLabel.bbcode_text = data[str(message_number)].get("person")
 		var sprite = DialogueHelper.get_sprite(data[str(message_number)].get("person"))
 		if load(sprite) != $TextureRect.texture:
 			$TextureRect/AnimationPlayer.play("Fade")

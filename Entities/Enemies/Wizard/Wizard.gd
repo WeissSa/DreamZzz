@@ -4,6 +4,8 @@ extends "res://Entities/Entity.gd"
 onready var left_light = $LeftLight
 onready var right_light = $RightLight
 
+export var moving = true
+
 const FOV_tolerance = 28
 
 onready var pos = position
@@ -24,7 +26,11 @@ func _ready():
 
 func _physics_process(delta):
 	if not paused:
-		move()
+		if moving:
+			move()
+		else:
+			$AnimatedSprite.flip_h = true
+			$AnimatedSprite.offset = Vector2(-30,0)
 		animate()
 		check_player(right)
 		check_lights()
@@ -55,10 +61,10 @@ func move():
 		motion.x = -speed
 		$AnimatedSprite.flip_h = true
 		$AnimatedSprite.offset = Vector2(-30,0)
-	move_and_slide(motion)
+		move_and_slide(motion)
 
 func check_lights():
-	if motion.x > 0:
+	if motion.x >= 0:
 		right_light.visible = true
 		left_light.visible = false
 	elif motion.x < 0:
@@ -99,14 +105,15 @@ func in_LOS():
 
 
 func spawn():
-	position = pos
-	$TextureProgress.value = 0
-	awareness = 0
-	speed = 70
-	$TextureProgress.step = 1
-	right = false
-	motion.x = -speed
-	tension = true
+	if moving:
+		position = pos
+		$TextureProgress.value = 0
+		awareness = 0
+		speed = 70
+		$TextureProgress.step = 1
+		right = false
+		motion.x = -speed
+		tension = true
 
 
 func _on_TextureProgress_value_changed(value):

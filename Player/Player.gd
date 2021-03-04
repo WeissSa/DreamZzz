@@ -122,6 +122,9 @@ func wall_jump():
 		if check_wall(left_wall_raycasts):
 			if not climbing and tired == 0:
 				$ClimbTime.start()
+				tired = 1
+			if tired == 1:
+				$ClimbTime.paused = false
 			$AnimatedSprite.offset.x = 2
 			sliding = true
 			climbing = true
@@ -136,6 +139,9 @@ func wall_jump():
 		elif check_wall(right_wall_raycasts):
 			if not climbing and tired == 0:
 				$ClimbTime.start()
+				tired = 1
+			if tired == 1:
+				$ClimbTime.paused = false
 			$AnimatedSprite.offset.x = -2
 			sliding = true
 			climbing = true
@@ -150,9 +156,9 @@ func wall_jump():
 		else:
 			$AnimatedSprite.offset.x = 0
 			sliding = false
-			if tired == 0:
-				$ClimbTime.stop()
-		if motion.y == 0 and sliding:
+			if tired == 1:
+				$ClimbTime.paused = true
+		if motion.y == 1 and sliding:
 			$AnimatedSprite.play("Hang")
 		else:
 			$AnimatedSprite.playing = true

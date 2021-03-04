@@ -1,0 +1,37 @@
+{
+  "1": {
+    "text": "This mushroom feels so lonely.",
+    "person": "Player",
+    "Question":  false
+  },
+  "2": {
+    "text": "At least it has a nice view.",
+    "person": "Pickles",
+    "Question": false
+  },
+  "3": {
+    "text": "I wish I could go back... make amends.",
+    "person": "Player",
+     "Question":  false
+  },
+  "4": {
+    "text": "Make amends with who, kid?",
+    "person": "Pickles",
+    "Question": false
+  },
+  "5": {
+    "text": "I don't quite know....",
+    "person": "Player",
+    "Question": false
+  },
+  "6": {
+    "text": "Then why don't you shut up and keep moving. I've got places to be ya know!?",
+    "person": "Pickles",
+    "Question": false
+  },
+  "7": {
+    "text": "[i]He has to start being nicer to me soon... right?[/i]",
+    "person": "Player",
+    "Question": false
+  }
+}

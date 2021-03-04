@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TileSets/NightmareTiles.tres" type="TileSet" id=2]
@@ -11,10 +11,9 @@
 [ext_resource path="res://Backgrounds/Cloudy/Background_Cloud1-export.png" type="Texture" id=9]
 [ext_resource path="res://LevelTemplate/Arrows.gd" type="Script" id=10]
 [ext_resource path="res://Backgrounds/Cloudy/Background_Cloud4-export.png" type="Texture" id=11]
-[ext_resource path="res://LevelTemplate/Elfen_Lied_Loop.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Music/Music.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Backgrounds/Cloudy/Background_Cloud3-export.png" type="Texture" id=13]
 [ext_resource path="res://Backgrounds/Cloudy/Background_Cloud2-export.png" type="Texture" id=14]
-[ext_resource path="res://LevelTemplate/Music.gd" type="Script" id=18]
 [ext_resource path="res://Player/Pickle/Pickle.tscn" type="PackedScene" id=21]
 
 [node name="LevelTemplate" type="Node2D"]
@@ -173,15 +172,8 @@ position = Vector2( 51.7927, -67.8868 )
 position = Vector2( -2.25121, -16.2955 )
 script = ExtResource( 10 )
 
-[node name="Music" type="AudioStreamPlayer" parent="." groups=[
-"UI",
-]]
-stream = ExtResource( 12 )
-volume_db = -12.117
-autoplay = true
-bus = "Music"
-script = ExtResource( 18 )
-
 [node name="Events" type="Node" parent="."]
+
+[node name="MusicPlayer" parent="." instance=ExtResource( 12 )]
 
 [editable path="Tiles/Shrooms/Mushrooms"]
