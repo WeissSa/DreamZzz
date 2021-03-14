@@ -56,7 +56,7 @@ shape = SubResource( 1 )
 [node name="Particles2D" type="Particles2D" parent="Area2D"]
 position = Vector2( 24.8974, 0 )
 amount = 64
-lifetime = 4.0
+lifetime = 2.0
 preprocess = 12.0
 visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
 local_coords = false

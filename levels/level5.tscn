@@ -424,6 +424,7 @@ position = Vector2( 906.577, -631.572 )
 [node name="EndLevel" parent="Objects in Front" index="5"]
 position = Vector2( 3152, -960 )
 scale = Vector2( 5.09269, 5.09269 )
+send_to = "6"
 
 [node name="Wizard" parent="Enemies" index="0" instance=ExtResource( 12 )]
 position = Vector2( -682.694, -2006.02 )
