@@ -10,6 +10,7 @@ const FOV_tolerance = 28
 
 onready var pos = position
 
+var can_flip = true
 var previous = 0
 var tension = true
 var right = true
@@ -34,8 +35,11 @@ func _physics_process(delta):
 		animate()
 		check_player(right)
 		check_lights()
-		if is_on_wall():
+		if is_on_wall() and can_flip:
 			right = !right
+			motion.x = -motion.x
+			can_flip = false
+			$FlipCooldown.start()
 		if seen and Player.detectable:
 			$TextureProgress.value +=  $TextureProgress.step * 5
 		else:
@@ -61,7 +65,7 @@ func move():
 		motion.x = -speed
 		$AnimatedSprite.flip_h = true
 		$AnimatedSprite.offset = Vector2(-30,0)
-		move_and_slide(motion)
+	move_and_slide(motion)
 
 func check_lights():
 	if motion.x >= 0:
@@ -143,3 +147,7 @@ func _on_FireballTimer_timeout():
 
 func _on_TensionTimer_timeout():
 	tension = true
+
+
+func _on_FlipCooldown_timeout():
+	can_flip = true

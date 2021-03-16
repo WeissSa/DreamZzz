@@ -88,6 +88,7 @@ func release():
 	$HookShot.release()
 	animate_cancel = false
 
+
 func move():
 	if not knockbacked:
 		if Input.is_action_pressed("left"):
@@ -272,6 +273,8 @@ func hookshot():
 	if sign(chain_vel.x) == -sign(motion.x):
 		chain_vel.x *= 0.4
 	if abs($HookShot.tip.x - position.x) > 500 or abs($HookShot.tip.y - position.y) > 450:
+		print ($HookShot.tip.x - position.x)
+		print ($HookShot.tip.y - position.y)
 		release()
 
 func _on_AnimatedSprite_animation_finished():

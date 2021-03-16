@@ -448,7 +448,7 @@ position = Vector2( 2065.96, -2118.07 )
 moving = false
 
 [node name="Player" parent="." index="3"]
-position = Vector2( 2418.47, -2095.68 )
+position = Vector2( 69, -56 )
 
 [node name="CheckPoint" parent="ObjectsBehind/Spawnpoints" index="0" instance=ExtResource( 8 )]
 position = Vector2( 126, -46 )
