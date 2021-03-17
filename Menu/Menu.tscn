@@ -6,7 +6,6 @@
 [ext_resource path="res://Menu/DefaultTheme.tres" type="Theme" id=4]
 [ext_resource path="res://Menu/Buttons/SFX_-_lock_close_01.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Menu/Menu.gd" type="Script" id=6]
-[ext_resource path="res://Menu/Credits.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Menu/Settings.tscn" type="PackedScene" id=8]
 [ext_resource path="res://LevelTemplate/cloud3mod.png" type="Texture" id=9]
 [ext_resource path="res://LevelTemplate/cloud2mod.png" type="Texture" id=10]
@@ -14,6 +13,7 @@
 [ext_resource path="res://Menu/Dreamzzz_background-2.png" type="Texture" id=12]
 [ext_resource path="res://Menu/MenuModulate.tres" type="Animation" id=13]
 [ext_resource path="res://Menu/Opening/Opening.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Menu/Credits/Credits.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Flicker"
@@ -247,12 +247,13 @@ one_shot = true
 [node name="Settings" parent="." instance=ExtResource( 8 )]
 visible = true
 
-[node name="Credits" parent="." instance=ExtResource( 7 )]
-visible = true
-
 [node name="MusicPlayer" parent="." instance=ExtResource( 1 )]
 
+[node name="Credits" parent="." instance=ExtResource( 15 )]
+visible = false
+
 [node name="Opening" parent="." instance=ExtResource( 14 )]
+visible = false
 [connection signal="pressed" from="VBoxContainer/CenterContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer2/OptionButton" to="." method="_on_OptionButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer3/CreditButton" to="." method="_on_CreditButton_pressed"]
@@ -260,4 +261,5 @@ visible = true
 [connection signal="timeout" from="QuitTimer" to="." method="_on_QuitTimer_timeout"]
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 [connection signal="click" from="Settings" to="." method="_on_Settings_click"]
+[connection signal="hidden" from="Credits" to="." method="_on_Credits_hidden"]
 [connection signal="music_start" from="Opening" to="." method="_on_Opening_music_start"]

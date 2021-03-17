@@ -15,6 +15,9 @@ func _on_OptionButton_pressed():
 
 func _on_CreditButton_pressed():
 	$Click.play()
+	$Credits.show()
+	$MusicPlayer.stop()
+	$Credits/AudioStreamPlayer.play()
 	
 func _on_QuitButton_pressed():
 	$Click.play()
@@ -37,3 +40,7 @@ func _on_Settings_click():
 
 func _on_Opening_music_start():
 	$MusicPlayer.change_music(name)
+
+
+func _on_Credits_hidden():
+	$MusicPlayer.play()
