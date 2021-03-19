@@ -90,7 +90,7 @@ func check_player(right):
 			seen = true
 		else:
 			seen = false
-	if abs(Player.position.x - global_position.x) < 80 and abs(Player.position.y - global_position.y) < 100:
+	if abs(Player.position.x - global_position.x) < 80 and abs(Player.position.y - global_position.y) < 100 and in_LOS():
 		seen = true
 
 func in_LOS():
