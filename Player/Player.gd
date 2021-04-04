@@ -15,6 +15,8 @@ var climbing = false
 export var climb_speed = -200
 var tired = 0
 
+var world = 1
+
 var animate_cancel = false
 
 var detectable = true
@@ -39,7 +41,8 @@ func _ready():
 
 func _physics_process(delta):
 	if not paused:
-		$Light.show()
+		if world == 1:
+			$Light.show()
 		move()
 		apply_gravity()
 		if not animate_cancel or not sliding:
@@ -57,8 +60,9 @@ func _physics_process(delta):
 	else:
 		motion.x = 0
 		$AnimatedSprite.play("idle")
-		if $Light.visible:
-			$Light.hide()
+		if world == 1:
+			if $Light.visible:
+				$Light.hide()
 
 
 			
@@ -249,7 +253,8 @@ func bottomless_void():
 func respawn():
 	get_tree().call_group("entities", "spawn")
 	hookshottable = true
-	$Light.show()
+	if world == 1:
+		$Light.show()
 	motion = Vector2(0,0)
 	get_tree().call_group("UI", "hookshot_track", hookshottable)
 
