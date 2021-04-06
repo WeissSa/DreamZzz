@@ -1,0 +1,12 @@
+{
+  "1": {
+    "text": "What was that?",
+    "person": "Player",
+    "Question":  false
+  },
+  "2": {
+    "text": "A corgi coin, most of them are hidden or are guarded by something scary, so be careful.",
+    "person": "Pickles",
+    "Question": false
+  }
+}

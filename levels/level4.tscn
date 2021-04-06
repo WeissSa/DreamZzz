@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://levels/level3.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/JumpPad.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Powerups/Coin/Coin.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Hazards/Spikes.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Light.tscn" type="PackedScene" id=5]
 [ext_resource path="res://TileSets/Decoration/Mushroom2.2.png" type="Texture" id=6]
@@ -9,6 +10,7 @@
 [ext_resource path="res://TileSets/Decoration/Mushroom1.png" type="Texture" id=8]
 [ext_resource path="res://Objects/CheckPoint/CheckPoint.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Entities/Enemies/Crow/Crow.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Events/DialogueEvent.tscn" type="PackedScene" id=11]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -485.473, 83.7544, -440.524, -32.3643, -393.701, 81.8818, -345.008, -30.4907, -296.313, 80.0093, -249.49, -39.8555, -198.923, 80.0093, -294.438, 80.0093 )
@@ -21,6 +23,9 @@ polygon = PoolVector2Array( -485.054, 74.7627, -440.73, -40.7832, -394.927, 76.2
 [node name="Mushrooms" parent="Tiles/Shrooms" index="0"]
 visible = true
 position = Vector2( 554.959, -2561.27 )
+
+[node name="Mush1" parent="Tiles/Shrooms/Mushrooms" index="0"]
+position = Vector2( 0, 0 )
 
 [node name="Light" parent="Tiles/Shrooms/Mushrooms/Mush1" index="0" instance=ExtResource( 5 )]
 visible = false
@@ -841,7 +846,7 @@ position = Vector2( 42.875, -24.4995 )
 occluder = SubResource( 1 )
 
 [node name="JumpPadRoot" parent="Objects in Front/JumpPads" index="0" instance=ExtResource( 2 )]
-position = Vector2( 156.798, -755.482 )
+position = Vector2( 156.798, -730.941 )
 
 [node name="JumpPadRoot2" parent="Objects in Front/JumpPads" index="1" instance=ExtResource( 2 )]
 position = Vector2( -718.458, -967.161 )
@@ -877,6 +882,10 @@ position = Vector2( 2287.63, -1390.51 )
 [node name="Player" parent="." index="3"]
 position = Vector2( 712.967, -47.9756 )
 
+[node name="Coin" parent="ObjectsBehind/Powerups" index="0" instance=ExtResource( 3 )]
+position = Vector2( 670.606, -2578.18 )
+ID = "1"
+
 [node name="CheckPoint" parent="ObjectsBehind/Spawnpoints" index="0"]
 position = Vector2( 931.475, -855.858 )
 
@@ -902,6 +911,13 @@ position = Vector2( 580.761, 11.7908 )
 [node name="DialogueBox" parent="Events/DialogueEvent/CanvasLayer" index="0"]
 path = "res://Dialogue/Scripts/Dialoguelevel4.json"
 
+[node name="DialogueEvent2" parent="Events" index="1" instance=ExtResource( 11 )]
+position = Vector2( 744.439, -2567.48 )
+mandatory = true
+
+[node name="DialogueBox" parent="Events/DialogueEvent2/CanvasLayer" index="0"]
+path = "res://Dialogue/Scripts/Dialoguelevel4 - 2.json"
+
 [editable path="Tiles/Shrooms/Mushrooms"]
 
 [editable path="Objects in Front/Spikes/Spikes2"]
@@ -919,3 +935,5 @@ path = "res://Dialogue/Scripts/Dialoguelevel4.json"
 [editable path="Objects in Front/Spikes/Spikes8"]
 
 [editable path="Events/DialogueEvent"]
+
+[editable path="Events/DialogueEvent2"]

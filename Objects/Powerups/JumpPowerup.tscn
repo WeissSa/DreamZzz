@@ -8,16 +8,13 @@
 [node name="JumpPowerup" instance=ExtResource( 1 )]
 
 [node name="HookShotPowerup" parent="." index="0"]
-modulate = Color( 0.968278, 0.996661, 0.99523, 1 )
-position = Vector2( 0, 0.38013 )
+modulate = Color( 0.582745, 0.956078, 0.937255, 1 )
+position = Vector2( 0, 5 )
 script = ExtResource( 3 )
-
-[node name="Particles2D" parent="HookShotPowerup" index="0"]
-amount = 8
 
 [node name="Sprite" parent="HookShotPowerup/Sprite" index="0"]
 texture = ExtResource( 2 )
 
-[node name="AudioStreamPlayer" parent="HookShotPowerup" index="6"]
+[node name="AudioStreamPlayer" parent="HookShotPowerup" index="5"]
 stream = ExtResource( 4 )
 pitch_scale = 0.92

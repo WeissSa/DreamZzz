@@ -5,9 +5,11 @@ var hookshot = true
 onready var icon = "res://UI/Heart.png"
 onready var hookicon = "res://Hookshot/HookShot.png"
 
+export (int) var TOTAL
 
 func _ready():
 	update_UI()
+	$Coin.hide()
 
 func respawn():
 	hearts.pop_back()
@@ -29,6 +31,11 @@ func hookshot_track(used):
 	update_UI()
 	
 
+func update_coin(number):
+	$Coin.show()
+	$Coin/Label.text = str(number) + "/" + str(TOTAL)
+	$Coin/CoinTimer.start()
+
 func update_UI():
 	$ItemList.clear()
 	$ItemList2.clear()
@@ -37,3 +44,7 @@ func update_UI():
 	if hookshot:
 		$ItemList2.add_icon_item(load(hookicon), false)
 		
+
+
+func _on_CoinTimer_timeout():
+	$Coin.hide()

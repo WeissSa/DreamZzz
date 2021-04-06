@@ -25,6 +25,7 @@ SaveGame="*res://Scripts/SaveGame.gd"
 HookShotMultiplier="*res://Scripts/HookShotMultiplier.gd"
 DialogueHelper="*res://Dialogue/DialogueHelper.gd"
 Music="*res://Music/Music.tscn"
+CoinTracker="*res://Objects/Powerups/Coin/CoinTracker.gd"
 
 [display]
 

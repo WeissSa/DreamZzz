@@ -6,18 +6,17 @@ func _ready():
 	show()
 
 func _on_HookShotPowerup_body_entered(body):
-	if body.collision_layer == 1 and visible == true:
+	if body.collision_layer == 1 and $Sprite.visible == true:
 		body.jump_count -= 1
-		$Particles2D.emitting = true
-		$ParticleTimer.start()
+		$Sparkle/AnimationPlayer.play("sparkle")
+		$RespawnTimer.start()
 		$AudioStreamPlayer.play()
+		$Sprite.hide()
 
 
-func _on_ParticleTimer_timeout():
-	hide()
-	$RespawnTimer.start()
 
 
 func _on_RespawnTimer_timeout():
 	show()
+	$Sprite.show()
 

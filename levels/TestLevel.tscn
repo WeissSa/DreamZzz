@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://LevelTemplate/LevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Hazards/Spikes.tscn" type="PackedScene" id=2]
@@ -12,673 +12,11 @@
 [ext_resource path="res://Entities/Enemies/Crow/Crow.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Bushes/Bush.tscn" type="PackedScene" id=11]
 [ext_resource path="res://TileSets/CloudSet.tres" type="TileSet" id=12]
-[ext_resource path="res://TileSets/Decoration/Mushrooms.tscn" type="PackedScene" id=13]
 [ext_resource path="res://TileSets/GroundMap/tileset_GroundMap.tres" type="TileSet" id=14]
-[ext_resource path="res://Objects/Light.tscn" type="PackedScene" id=15]
-[ext_resource path="res://TileSets/Decoration/Mushroom1.png" type="Texture" id=16]
-[ext_resource path="res://TileSets/Decoration/Mushroom2.2.png" type="Texture" id=17]
-[ext_resource path="res://TileSets/Decoration/Mushroom3.png" type="Texture" id=18]
 
 [node name="LevelTemplate" instance=ExtResource( 1 )]
-position = Vector2( 10.2454, 0 )
 
 [node name="Grouping1" type="Node" parent="Tiles/Shrooms" index="0"]
-
-[node name="Mushrooms" parent="Tiles/Shrooms/Grouping1" index="0" instance=ExtResource( 13 )]
-position = Vector2( -835.9, -2791.69 )
-rotation = -0.00283583
-scale = Vector2( 0.37468, 0.37468 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms" index="0"]
-visible = true
-position = Vector2( 42.0631, 6.29115 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms" index="1"]
-visible = true
-position = Vector2( 20.1888, 17.8315 )
-
-[node name="Mushrooms2" parent="Tiles/Shrooms/Grouping1" index="1" instance=ExtResource( 13 )]
-position = Vector2( -835.9, -2791.69 )
-rotation = -0.00283583
-scale = Vector2( 0.37468, 0.37468 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms2" index="0"]
-visible = true
-position = Vector2( -18.0037, 17.3424 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms2" index="1"]
-visible = true
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms2" index="2"]
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms3" parent="Tiles/Shrooms/Grouping1" index="2" instance=ExtResource( 13 )]
-position = Vector2( -835.9, -2791.69 )
-rotation = -0.00283583
-scale = Vector2( 0.37468, 0.37468 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms3" index="0"]
-visible = true
-position = Vector2( 91.9689, 17.0598 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms3" index="1"]
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms3" index="2"]
-visible = false
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms4" parent="Tiles/Shrooms/Grouping1" index="3" instance=ExtResource( 13 )]
-position = Vector2( -840.355, -2795.25 )
-rotation = -0.00283583
-scale = Vector2( 0.487153, 0.487153 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms4" index="0"]
-visible = true
-position = Vector2( 91.9689, 17.0598 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms4" index="1"]
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms4" index="2"]
-visible = false
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms5" parent="Tiles/Shrooms/Grouping1" index="4" instance=ExtResource( 13 )]
-position = Vector2( -810.855, -2790.75 )
-rotation = -0.00283583
-scale = Vector2( 0.381962, 0.381962 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms5" index="0"]
-position = Vector2( 91.9689, 17.0598 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms5" index="1"]
-visible = true
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms5" index="2"]
-visible = false
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms6" parent="Tiles/Shrooms/Grouping1" index="5" instance=ExtResource( 13 )]
-position = Vector2( -811.105, -2794.5 )
-rotation = -0.00283583
-scale = Vector2( 0.466543, 0.466543 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms6" index="0"]
-position = Vector2( 91.9689, 17.0598 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms6" index="1"]
-visible = true
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms6" index="2"]
-visible = false
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms7" parent="Tiles/Shrooms/Grouping1" index="6" instance=ExtResource( 13 )]
-position = Vector2( -774.794, -2793.58 )
-rotation = -0.00283583
-scale = Vector2( 0.37468, 0.37468 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms7" index="0"]
-visible = true
-position = Vector2( 42.0631, 6.29115 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms7" index="1"]
-visible = true
-position = Vector2( 20.1888, 17.8315 )
-
-[node name="Mushrooms8" parent="Tiles/Shrooms/Grouping1" index="7" instance=ExtResource( 13 )]
-position = Vector2( -774.794, -2793.58 )
-rotation = -0.00283583
-scale = Vector2( 0.37468, 0.37468 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms8" index="0"]
-visible = true
-position = Vector2( -18.0037, 17.3424 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms8" index="1"]
-visible = true
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms8" index="2"]
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms9" parent="Tiles/Shrooms/Grouping1" index="8" instance=ExtResource( 13 )]
-position = Vector2( -774.794, -2793.58 )
-rotation = -0.00283583
-scale = Vector2( 0.37468, 0.37468 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms9" index="0"]
-visible = true
-position = Vector2( 91.9689, 17.0598 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms9" index="1"]
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms9" index="2"]
-visible = false
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms10" parent="Tiles/Shrooms/Grouping1" index="9" instance=ExtResource( 13 )]
-position = Vector2( -779.249, -2797.14 )
-rotation = -0.00283583
-scale = Vector2( 0.487153, 0.487153 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms10" index="0"]
-visible = true
-position = Vector2( 91.9689, 17.0598 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms10" index="1"]
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms10" index="2"]
-visible = false
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms11" parent="Tiles/Shrooms/Grouping1" index="10" instance=ExtResource( 13 )]
-position = Vector2( -749.749, -2792.64 )
-rotation = -0.00283583
-scale = Vector2( 0.381962, 0.381962 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms11" index="0"]
-position = Vector2( 91.9689, 17.0598 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms11" index="1"]
-visible = true
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms11" index="2"]
-visible = false
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms12" parent="Tiles/Shrooms/Grouping1" index="11" instance=ExtResource( 13 )]
-position = Vector2( -749.999, -2796.39 )
-rotation = -0.00283583
-scale = Vector2( 0.466543, 0.466543 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms12" index="0"]
-position = Vector2( 91.9689, 17.0598 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms12" index="1"]
-visible = true
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms12" index="2"]
-visible = false
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms13" parent="Tiles/Shrooms/Grouping1" index="12" instance=ExtResource( 13 )]
-position = Vector2( -712.428, -2794.21 )
-rotation = -0.00283583
-scale = Vector2( 0.37468, 0.37468 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms13" index="0"]
-visible = true
-position = Vector2( 42.0631, 6.29115 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms13" index="1"]
-visible = true
-position = Vector2( 20.1888, 17.8315 )
-
-[node name="Mushrooms14" parent="Tiles/Shrooms/Grouping1" index="13" instance=ExtResource( 13 )]
-position = Vector2( -712.428, -2794.21 )
-rotation = -0.00283583
-scale = Vector2( 0.37468, 0.37468 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms14" index="0"]
-visible = true
-position = Vector2( -18.0037, 17.3424 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms14" index="1"]
-visible = true
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms14" index="2"]
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms15" parent="Tiles/Shrooms/Grouping1" index="14" instance=ExtResource( 13 )]
-position = Vector2( -712.428, -2794.21 )
-rotation = -0.00283583
-scale = Vector2( 0.37468, 0.37468 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms15" index="0"]
-visible = true
-position = Vector2( 91.9689, 17.0598 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms15" index="1"]
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms15" index="2"]
-visible = false
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms16" parent="Tiles/Shrooms/Grouping1" index="15" instance=ExtResource( 13 )]
-position = Vector2( -716.882, -2797.77 )
-rotation = -0.00283583
-scale = Vector2( 0.487153, 0.487153 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms16" index="0"]
-visible = true
-position = Vector2( 91.9689, 17.0598 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms16" index="1"]
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms16" index="2"]
-visible = false
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms17" parent="Tiles/Shrooms/Grouping1" index="16" instance=ExtResource( 13 )]
-position = Vector2( -687.383, -2793.27 )
-rotation = -0.00283583
-scale = Vector2( 0.381962, 0.381962 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms17" index="0"]
-position = Vector2( 91.9689, 17.0598 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms17" index="1"]
-visible = true
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms17" index="2"]
-visible = false
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms18" parent="Tiles/Shrooms/Grouping1" index="17" instance=ExtResource( 13 )]
-position = Vector2( -687.633, -2797.02 )
-rotation = -0.00283583
-scale = Vector2( 0.466543, 0.466543 )
-z_index = -1
-
-[node name="Mush1" parent="Tiles/Shrooms/Grouping1/Mushrooms18" index="0"]
-position = Vector2( 91.9689, 17.0598 )
-scale = Vector2( 0.450428, 0.450428 )
-
-[node name="Mush2" parent="Tiles/Shrooms/Grouping1/Mushrooms18" index="1"]
-visible = true
-position = Vector2( 56.0896, 20.7387 )
-scale = Vector2( 0.328031, 0.328031 )
-
-[node name="Mush3" parent="Tiles/Shrooms/Grouping1/Mushrooms18" index="2"]
-visible = false
-position = Vector2( 70.1407, -2.04542 )
-scale = Vector2( 1.18906, 1.18906 )
-
-[node name="Mushrooms2" type="Node2D" parent="Tiles/Shrooms" index="2"]
-position = Vector2( -2722.9, -2657.79 )
-scale = Vector2( 2.17352, 2.17352 )
-
-[node name="Mush1" type="Sprite" parent="Tiles/Shrooms/Mushrooms2" index="0"]
-position = Vector2( -13.4624, 24.3188 )
-scale = Vector2( 0.221627, 0.221627 )
-texture = ExtResource( 16 )
-
-[node name="Light" parent="Tiles/Shrooms/Mushrooms2/Mush1" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( -10.2047, -23.811 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.7
-
-[node name="Mush4" type="Sprite" parent="Tiles/Shrooms/Mushrooms2" index="1"]
-position = Vector2( -124.599, 26.0249 )
-scale = Vector2( 0.221627, 0.221627 )
-texture = ExtResource( 16 )
-
-[node name="Light" parent="Tiles/Shrooms/Mushrooms2/Mush4" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( -10.2047, -23.811 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.7
-
-[node name="Mush5" type="Sprite" parent="Tiles/Shrooms/Mushrooms2" index="2"]
-position = Vector2( -229.887, 24.5625 )
-scale = Vector2( 0.221627, 0.221627 )
-texture = ExtResource( 16 )
-
-[node name="Light" parent="Tiles/Shrooms/Mushrooms2/Mush5" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( -10.2047, -23.811 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.7
-
-[node name="Mush2" type="Sprite" parent="Tiles/Shrooms/Mushrooms2" index="3"]
-position = Vector2( 9.86523, 28.2422 )
-scale = Vector2( 0.125786, 0.125786 )
-texture = ExtResource( 17 )
-
-[node name="Light2" parent="Tiles/Shrooms/Mushrooms2/Mush2" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( 0.667419, -14.6832 )
-scale = Vector2( 7, 7 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.8
-
-[node name="Mush3" type="Sprite" parent="Tiles/Shrooms/Mushrooms2" index="4"]
-z_index = -1
-texture = ExtResource( 18 )
-
-[node name="Light3" parent="Tiles/Shrooms/Mushrooms2/Mush3" index="0" instance=ExtResource( 15 )]
-position = Vector2( 3.67081, -27.0305 )
-scale = Vector2( 3.5, 3.5 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.8
-
-[node name="Mush6" type="Sprite" parent="Tiles/Shrooms/Mushrooms2" index="5"]
-position = Vector2( -23.6411, 28.0278 )
-scale = Vector2( 0.151814, 0.151814 )
-z_index = -1
-texture = ExtResource( 18 )
-
-[node name="Light3" parent="Tiles/Shrooms/Mushrooms2/Mush6" index="0" instance=ExtResource( 15 )]
-position = Vector2( 3.67081, -27.0305 )
-scale = Vector2( 3.5, 3.5 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.8
-
-[node name="Mushrooms3" type="Node2D" parent="Tiles/Shrooms" index="3"]
-position = Vector2( -3023.9, -2628.29 )
-scale = Vector2( 1.21686, 1.21686 )
-
-[node name="Mush1" type="Sprite" parent="Tiles/Shrooms/Mushrooms3" index="0"]
-position = Vector2( -13.4624, 24.3188 )
-scale = Vector2( 0.221627, 0.221627 )
-texture = ExtResource( 16 )
-
-[node name="Light" parent="Tiles/Shrooms/Mushrooms3/Mush1" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( -10.2047, -23.811 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.7
-
-[node name="Mush2" type="Sprite" parent="Tiles/Shrooms/Mushrooms3" index="1"]
-position = Vector2( 9.86523, 28.2422 )
-scale = Vector2( 0.125786, 0.125786 )
-texture = ExtResource( 17 )
-
-[node name="Light2" parent="Tiles/Shrooms/Mushrooms3/Mush2" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( 0.667419, -14.6832 )
-scale = Vector2( 7, 7 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.8
-
-[node name="Mush3" type="Sprite" parent="Tiles/Shrooms/Mushrooms3" index="2"]
-z_index = -1
-texture = ExtResource( 18 )
-
-[node name="Light3" parent="Tiles/Shrooms/Mushrooms3/Mush3" index="0" instance=ExtResource( 15 )]
-position = Vector2( 3.67081, -27.0305 )
-scale = Vector2( 3.5, 3.5 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.8
-
-[node name="Mushrooms4" type="Node2D" parent="Tiles/Shrooms" index="4"]
-position = Vector2( -3268.12, -2675.48 )
-scale = Vector2( 2.8341, 2.8341 )
-
-[node name="Mush1" type="Sprite" parent="Tiles/Shrooms/Mushrooms4" index="0"]
-position = Vector2( -13.4624, 24.3188 )
-scale = Vector2( 0.221627, 0.221627 )
-texture = ExtResource( 16 )
-
-[node name="Light" parent="Tiles/Shrooms/Mushrooms4/Mush1" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( -10.2047, -23.811 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.7
-
-[node name="Mush2" type="Sprite" parent="Tiles/Shrooms/Mushrooms4" index="1"]
-position = Vector2( 9.86523, 28.2422 )
-scale = Vector2( 0.125786, 0.125786 )
-texture = ExtResource( 17 )
-
-[node name="Light2" parent="Tiles/Shrooms/Mushrooms4/Mush2" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( 0.667419, -14.6832 )
-scale = Vector2( 7, 7 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.8
-
-[node name="Mush3" type="Sprite" parent="Tiles/Shrooms/Mushrooms4" index="2"]
-z_index = -1
-texture = ExtResource( 18 )
-
-[node name="Light3" parent="Tiles/Shrooms/Mushrooms4/Mush3" index="0" instance=ExtResource( 15 )]
-position = Vector2( 3.67081, -27.0305 )
-scale = Vector2( 3.5, 3.5 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.8
-
-[node name="Mushrooms5" type="Node2D" parent="Tiles/Shrooms" index="5"]
-position = Vector2( -3517.58, -2659.57 )
-scale = Vector2( 2.17352, 2.17352 )
-
-[node name="Mush1" type="Sprite" parent="Tiles/Shrooms/Mushrooms5" index="0"]
-position = Vector2( -13.4624, 24.3188 )
-scale = Vector2( 0.221627, 0.221627 )
-texture = ExtResource( 16 )
-
-[node name="Light" parent="Tiles/Shrooms/Mushrooms5/Mush1" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( -10.2047, -23.811 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.7
-
-[node name="Mush4" type="Sprite" parent="Tiles/Shrooms/Mushrooms5" index="1"]
-position = Vector2( -124.599, 26.0249 )
-scale = Vector2( 0.221627, 0.221627 )
-texture = ExtResource( 16 )
-
-[node name="Light" parent="Tiles/Shrooms/Mushrooms5/Mush4" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( -10.2047, -23.811 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.7
-
-[node name="Mush5" type="Sprite" parent="Tiles/Shrooms/Mushrooms5" index="2"]
-position = Vector2( -229.887, 24.5625 )
-scale = Vector2( 0.221627, 0.221627 )
-texture = ExtResource( 16 )
-
-[node name="Light" parent="Tiles/Shrooms/Mushrooms5/Mush5" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( -10.2047, -23.811 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.7
-
-[node name="Mush2" type="Sprite" parent="Tiles/Shrooms/Mushrooms5" index="3"]
-position = Vector2( 9.86523, 28.2422 )
-scale = Vector2( 0.125786, 0.125786 )
-texture = ExtResource( 17 )
-
-[node name="Light2" parent="Tiles/Shrooms/Mushrooms5/Mush2" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( 0.667419, -14.6832 )
-scale = Vector2( 7, 7 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.8
-
-[node name="Mush3" type="Sprite" parent="Tiles/Shrooms/Mushrooms5" index="4"]
-z_index = -1
-texture = ExtResource( 18 )
-
-[node name="Light3" parent="Tiles/Shrooms/Mushrooms5/Mush3" index="0" instance=ExtResource( 15 )]
-position = Vector2( 3.67081, -27.0305 )
-scale = Vector2( 3.5, 3.5 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.8
-
-[node name="Mush6" type="Sprite" parent="Tiles/Shrooms/Mushrooms5" index="5"]
-position = Vector2( -23.6411, 28.0278 )
-scale = Vector2( 0.151814, 0.151814 )
-z_index = -1
-texture = ExtResource( 18 )
-
-[node name="Light3" parent="Tiles/Shrooms/Mushrooms5/Mush6" index="0" instance=ExtResource( 15 )]
-position = Vector2( 3.67081, -27.0305 )
-scale = Vector2( 3.5, 3.5 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.8
-
-[node name="Mushrooms6" type="Node2D" parent="Tiles/Shrooms" index="6"]
-position = Vector2( -3818.58, -2630.07 )
-scale = Vector2( 1.21686, 1.21686 )
-
-[node name="Mush1" type="Sprite" parent="Tiles/Shrooms/Mushrooms6" index="0"]
-position = Vector2( -13.4624, 24.3188 )
-scale = Vector2( 0.221627, 0.221627 )
-texture = ExtResource( 16 )
-
-[node name="Light" parent="Tiles/Shrooms/Mushrooms6/Mush1" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( -10.2047, -23.811 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.7
-
-[node name="Mush2" type="Sprite" parent="Tiles/Shrooms/Mushrooms6" index="1"]
-position = Vector2( 9.86523, 28.2422 )
-scale = Vector2( 0.125786, 0.125786 )
-texture = ExtResource( 17 )
-
-[node name="Light2" parent="Tiles/Shrooms/Mushrooms6/Mush2" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( 0.667419, -14.6832 )
-scale = Vector2( 7, 7 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.8
-
-[node name="Mush3" type="Sprite" parent="Tiles/Shrooms/Mushrooms6" index="2"]
-z_index = -1
-texture = ExtResource( 18 )
-
-[node name="Light3" parent="Tiles/Shrooms/Mushrooms6/Mush3" index="0" instance=ExtResource( 15 )]
-position = Vector2( 3.67081, -27.0305 )
-scale = Vector2( 3.5, 3.5 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.8
-
-[node name="Mushrooms7" type="Node2D" parent="Tiles/Shrooms" index="7"]
-position = Vector2( -4062.8, -2677.26 )
-scale = Vector2( 2.8341, 2.8341 )
-
-[node name="Mush1" type="Sprite" parent="Tiles/Shrooms/Mushrooms7" index="0"]
-position = Vector2( -13.4624, 24.3188 )
-scale = Vector2( 0.221627, 0.221627 )
-texture = ExtResource( 16 )
-
-[node name="Light" parent="Tiles/Shrooms/Mushrooms7/Mush1" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( -10.2047, -23.811 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.7
-
-[node name="Mush2" type="Sprite" parent="Tiles/Shrooms/Mushrooms7" index="1"]
-position = Vector2( 9.86523, 28.2422 )
-scale = Vector2( 0.125786, 0.125786 )
-texture = ExtResource( 17 )
-
-[node name="Light2" parent="Tiles/Shrooms/Mushrooms7/Mush2" index="0" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( 0.667419, -14.6832 )
-scale = Vector2( 7, 7 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.8
-
-[node name="Mush3" type="Sprite" parent="Tiles/Shrooms/Mushrooms7" index="2"]
-z_index = -1
-texture = ExtResource( 18 )
-
-[node name="Light3" parent="Tiles/Shrooms/Mushrooms7/Mush3" index="0" instance=ExtResource( 15 )]
-position = Vector2( 3.67081, -27.0305 )
-scale = Vector2( 3.5, 3.5 )
-z_index = -1
-color = Color( 0.105882, 0.352941, 0.384314, 1 )
-energy = 0.8
 
 [node name="TileMap" type="TileMap" parent="Tiles" index="1"]
 tile_set = ExtResource( 14 )
@@ -707,55 +45,44 @@ position = Vector2( 4402.23, 264.285 )
 [node name="Fan" parent="Objects in Front/Fans" index="0" instance=ExtResource( 5 )]
 position = Vector2( 2796.82, -391.814 )
 
-[node name="Fan2" parent="Objects in Front/Fans" index="1" instance=ExtResource( 5 )]
-position = Vector2( -2120.84, -992.184 )
-
 [node name="Spikes" parent="Objects in Front/Spikes" index="0" instance=ExtResource( 2 )]
 position = Vector2( 241.214, -3.66528 )
 
-[node name="Spikes5" parent="Objects in Front/Spikes" index="1" instance=ExtResource( 2 )]
-position = Vector2( -985.509, -2734.92 )
-rotation = 1.57079
-
-[node name="Spikes17" parent="Objects in Front/Spikes" index="2" instance=ExtResource( 2 )]
-position = Vector2( -869.509, -784.924 )
-rotation = 4.71238
-
-[node name="Spikes18" parent="Objects in Front/Spikes" index="3" instance=ExtResource( 2 )]
+[node name="Spikes18" parent="Objects in Front/Spikes" index="1" instance=ExtResource( 2 )]
 position = Vector2( -937.896, -342.048 )
 rotation = 6.28318
 
-[node name="Spikes6" parent="Objects in Front/Spikes" index="4" instance=ExtResource( 2 )]
+[node name="Spikes6" parent="Objects in Front/Spikes" index="2" instance=ExtResource( 2 )]
 position = Vector2( 4168.68, -245.881 )
 
-[node name="Spikes7" parent="Objects in Front/Spikes" index="5" instance=ExtResource( 2 )]
+[node name="Spikes7" parent="Objects in Front/Spikes" index="3" instance=ExtResource( 2 )]
 position = Vector2( 4273.45, -245.881 )
 
-[node name="Spikes8" parent="Objects in Front/Spikes" index="6" instance=ExtResource( 2 )]
+[node name="Spikes8" parent="Objects in Front/Spikes" index="4" instance=ExtResource( 2 )]
 position = Vector2( 4376.81, -245.881 )
 
-[node name="Spikes9" parent="Objects in Front/Spikes" index="7" instance=ExtResource( 2 )]
+[node name="Spikes9" parent="Objects in Front/Spikes" index="5" instance=ExtResource( 2 )]
 position = Vector2( 4481.1, -245.881 )
 
-[node name="Spikes10" parent="Objects in Front/Spikes" index="8" instance=ExtResource( 2 )]
+[node name="Spikes10" parent="Objects in Front/Spikes" index="6" instance=ExtResource( 2 )]
 position = Vector2( 4586.82, -245.881 )
 
-[node name="Spikes11" parent="Objects in Front/Spikes" index="9" instance=ExtResource( 2 )]
+[node name="Spikes11" parent="Objects in Front/Spikes" index="7" instance=ExtResource( 2 )]
 position = Vector2( 4690.17, -245.881 )
 
-[node name="Spikes12" parent="Objects in Front/Spikes" index="10" instance=ExtResource( 2 )]
+[node name="Spikes12" parent="Objects in Front/Spikes" index="8" instance=ExtResource( 2 )]
 position = Vector2( 4794, -245.881 )
 
-[node name="Spikes13" parent="Objects in Front/Spikes" index="11" instance=ExtResource( 2 )]
+[node name="Spikes13" parent="Objects in Front/Spikes" index="9" instance=ExtResource( 2 )]
 position = Vector2( 4899.71, -245.881 )
 
-[node name="Spikes14" parent="Objects in Front/Spikes" index="12" instance=ExtResource( 2 )]
+[node name="Spikes14" parent="Objects in Front/Spikes" index="10" instance=ExtResource( 2 )]
 position = Vector2( 5005.43, -245.881 )
 
-[node name="Spikes15" parent="Objects in Front/Spikes" index="13" instance=ExtResource( 2 )]
+[node name="Spikes15" parent="Objects in Front/Spikes" index="11" instance=ExtResource( 2 )]
 position = Vector2( 5108.78, -245.881 )
 
-[node name="Spikes16" parent="Objects in Front/Spikes" index="14" instance=ExtResource( 2 )]
+[node name="Spikes16" parent="Objects in Front/Spikes" index="12" instance=ExtResource( 2 )]
 position = Vector2( 5196.56, -245.881 )
 scale = Vector2( 0.07, 0.1 )
 
@@ -771,37 +98,16 @@ position = Vector2( -2903.73, -249.238 )
 [node name="Entity" parent="Enemies" index="0" instance=ExtResource( 10 )]
 position = Vector2( 6522.46, -649.125 )
 
-[node name="Entity2" parent="Enemies" index="1" instance=ExtResource( 10 )]
-position = Vector2( -1097.74, -1989.51 )
-
-[node name="Entity3" parent="Enemies" index="2" instance=ExtResource( 10 )]
-position = Vector2( -1119.61, -1900.38 )
-
-[node name="Entity4" parent="Enemies" index="3" instance=ExtResource( 10 )]
-position = Vector2( -1133.06, -2065.19 )
-
-[node name="Entity5" parent="Enemies" index="4" instance=ExtResource( 10 )]
-position = Vector2( -1075.88, -2139.19 )
-
-[node name="Entity6" parent="Enemies" index="5" instance=ExtResource( 10 )]
-position = Vector2( -1141.47, -2198.06 )
-
-[node name="Wizard" parent="Enemies" index="6" instance=ExtResource( 9 )]
-position = Vector2( -534.768, -1504.05 )
-
-[node name="Wizard2" parent="Enemies" index="7" instance=ExtResource( 9 )]
+[node name="Wizard2" parent="Enemies" index="1" instance=ExtResource( 9 )]
 position = Vector2( -2241.95, -54.1886 )
 
 [node name="Player" parent="." index="3"]
-position = Vector2( -2533.36, -2637.33 )
+position = Vector2( 89.8704, -204.803 )
 
 [node name="JumpPowerup" parent="ObjectsBehind/Powerups" index="0" instance=ExtResource( 6 )]
-position = Vector2( 3236.05, -677.394 )
+position = Vector2( 1176.34, -377.714 )
 
-[node name="HookShotPowerup" parent="ObjectsBehind/Powerups" index="1" instance=ExtResource( 8 )]
-position = Vector2( -1987.94, -544.708 )
-
-[node name="HookShotPowerup2" parent="ObjectsBehind/Powerups" index="2" instance=ExtResource( 8 )]
+[node name="HookShotPowerup2" parent="ObjectsBehind/Powerups" index="1" instance=ExtResource( 8 )]
 position = Vector2( 332.765, -347.964 )
 
 [node name="CheckPoint" parent="ObjectsBehind/Spawnpoints" index="0" instance=ExtResource( 4 )]
@@ -838,42 +144,6 @@ path = "res://Dialogue/Scripts/DialoguelevelTrailer2.json"
 
 [node name="RichTextLabel" parent="Events/DialogueEvent2/CanvasLayer" index="2"]
 text = ""
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms2"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms3"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms4"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms5"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms6"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms7"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms8"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms9"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms10"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms11"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms12"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms13"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms14"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms15"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms16"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms17"]
-
-[editable path="Tiles/Shrooms/Grouping1/Mushrooms18"]
 
 [editable path="Tiles/Shrooms/Mushrooms"]
 

@@ -25,7 +25,8 @@ func get_data():
 			"left" : 65,
 			"action" : 70,
 			"down" : 83,
-			"attack" : 32
+			"attack" : 32,
+			"coins" : []
 		}
 		save_game()
 	file.open(SAVEGAME, File.READ)
