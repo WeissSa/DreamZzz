@@ -1,0 +1,46 @@
+[gd_scene format=2]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.964
+margin_top = -123.831
+margin_right = 9.03601
+margin_bottom = -103.831
+rect_min_size = Vector2( 20, 20 )
+color = Color( 0.105882, 0.0823529, 0.184314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.1214
+margin_top = -11.8463
+margin_right = 11.8786
+margin_bottom = 12.1537
+rect_min_size = Vector2( 24, 24 )
+color = Color( 0.419608, 0.364706, 0.6, 0.337255 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.99997
+margin_top = -120.325
+margin_right = 4.99768
+margin_bottom = -105.325
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -7,52 +7,8 @@
 "misc",
 ] instance=ExtResource( 1 )]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="1"]
-
 [node name="DialogueBox" parent="CanvasLayer" index="0" instance=ExtResource( 2 )]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -10.964
-margin_top = -123.831
-margin_right = 9.03601
-margin_bottom = -103.831
-rect_min_size = Vector2( 20, 20 )
-color = Color( 0.105882, 0.0823529, 0.184314, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/ColorRect" index="0"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -12.1214
-margin_top = -11.8463
-margin_right = 11.8786
-margin_bottom = 12.1537
-rect_min_size = Vector2( 24, 24 )
-color = Color( 0.419608, 0.364706, 0.6, 0.337255 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" index="2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -4.99997
-margin_top = -120.325
-margin_right = 4.99768
-margin_bottom = -105.325
-text = "E"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="body_exited" from="." to="." method="_on_DialogueEvent_body_exited"]
 [connection signal="dialogue_over" from="CanvasLayer/DialogueBox" to="." method="_on_DialogueBox_dialogue_over"]
+
+[editable path="CanvasLayer"]
