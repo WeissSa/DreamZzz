@@ -67,6 +67,11 @@ animations = [ {
 "name": "AirAttack",
 "speed": 20.0
 }, {
+"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "WallClimb",
+"speed": 24.0
+}, {
 "frames": [ ExtResource( 46 ), ExtResource( 45 ) ],
 "loop": true,
 "name": "Hang",
@@ -77,16 +82,6 @@ animations = [ {
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 37 ), ExtResource( 39 ), ExtResource( 38 ) ],
-"loop": false,
-"name": "Cast",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 18 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "WallClimb",
-"speed": 24.0
-}, {
 "frames": [ ExtResource( 17 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "Run",
@@ -96,6 +91,11 @@ animations = [ {
 "loop": false,
 "name": "Attack",
 "speed": 30.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 39 ), ExtResource( 38 ) ],
+"loop": false,
+"name": "Cast",
+"speed": 15.0
 } ]
 
 [sub_resource type="Animation" id=3]

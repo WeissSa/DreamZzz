@@ -15,6 +15,8 @@ var climbing = false
 export var climb_speed = -200
 var tired = 0
 
+var climbing_time = 3
+
 var world = 1
 
 var animate_cancel = false
@@ -126,7 +128,7 @@ func wall_jump():
 	if not animate_cancel:
 		if check_wall(left_wall_raycasts):
 			if not climbing and tired == 0:
-				$ClimbTime.start()
+				$ClimbTime.start(climbing_time)
 				tired = 1
 			if tired == 1:
 				$ClimbTime.paused = false
@@ -143,7 +145,7 @@ func wall_jump():
 				motion.y = -climb_speed
 		elif check_wall(right_wall_raycasts):
 			if not climbing and tired == 0:
-				$ClimbTime.start()
+				$ClimbTime.start(climbing_time)
 				tired = 1
 			if tired == 1:
 				$ClimbTime.paused = false
@@ -227,7 +229,7 @@ func animate():
 		elif !sliding:
 			$SlideAnimation.stop()
 			
-		if $ClimbTime.time_left < 3 and $ClimbTime.time_left > 0.2:
+		if $ClimbTime.time_left < 1 and $ClimbTime.time_left > 0.2:
 			$AnimatedSprite.modulate = Color(colors[1])
 		elif $ClimbTime.time_left < 0.2 and sliding:
 			$AnimatedSprite.modulate = Color(colors[2])

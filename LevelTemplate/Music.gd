@@ -22,6 +22,12 @@ func change_music(level_name):
 				playing = true
 			else:
 				play(time_save)
+		"HutTemplate":
+			if stream != load("res://Music/JDB Artist - Inspirational Vol.2 - 07 In the Name of Science (Adventure).ogg"):
+				stream = load("res://Music/JDB Artist - Inspirational Vol.2 - 07 In the Name of Science (Adventure).ogg")
+				playing = true
+			else:
+				play(time_save)
 
 func store_time():
 	time_save = get_playback_position()
