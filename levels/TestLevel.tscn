@@ -44,7 +44,7 @@ position = Vector2( 6403.77, -659.255 )
 position = Vector2( 4402.23, 264.285 )
 
 [node name="Fan" parent="Objects in Front/Fans" index="0" instance=ExtResource( 5 )]
-position = Vector2( 1066.55, -179.102 )
+position = Vector2( 1619.86, -133.694 )
 
 [node name="Spikes" parent="Objects in Front/Spikes" index="0" instance=ExtResource( 2 )]
 position = Vector2( 241.214, -3.66528 )
