@@ -13,6 +13,8 @@ func _physics_process(delta):
 		queue_free()
 
 func _on_Hilt_body_entered(body):
-	if body.collision_layer == 4:
+	if body.collision_layer == 4 or body.collision_layer == 6:
 		body.health -= 1
+		if body.health > 0:
+			body.hit()
 		queue_free()
