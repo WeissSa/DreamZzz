@@ -40,16 +40,19 @@ scale_random = 0.25
 [sub_resource type="OccluderPolygon2D" id=6]
 polygon = PoolVector2Array( -28.6839, -4.48068, -25.9059, -3.68698, -24.3185, -5.67123, -11.2225, -3.29013, 16.1602, -2.89328, 17.7476, -12.8145, 28.8594, -0.512177, 18.1444, 11.3933, 17.3507, 2.66263, -7.65083, 2.26578, -22.3343, 6.23428, -25.1122, 3.05948, -29.0807, 2.66263 )
 
-[node name="Arrow" type="Node2D"]
+[node name="Arrow" type="Node2D" groups=[
+"entities",
+]]
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 
 [node name="Body" type="KinematicBody2D" parent="."]
 collision_layer = 0
-collision_mask = 8
+collision_mask = 10
 
 [node name="Hilt" type="Area2D" parent="Body"]
-collision_mask = 4
+collision_layer = 8
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Hilt"]
 position = Vector2( 20.08, 0.393724 )

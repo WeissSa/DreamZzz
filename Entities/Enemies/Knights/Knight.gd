@@ -6,6 +6,7 @@ onready var initial = position
 
 func _ready():
 	speed = 100
+	modulate = Color("ffffff")
 	health = 2
 
 func _physics_process(delta):
@@ -26,10 +27,10 @@ func check_death():
 func spawn():
 	position = initial
 	$AnimatedSprite.flip_h = false
-	health = 1
+	health = 2
 	show()
 	modulate = Color("ffffff")
-	collision_layer = 4
+	collision_layer = 6
 	$Area2D.monitoring = true
 
 func jumpPad():

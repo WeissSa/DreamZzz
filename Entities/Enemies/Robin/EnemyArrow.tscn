@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player/atk/Arrow.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Enemies/Robin/EnemyArrow.gd" type="Script" id=2]
+
+[node name="EnemyArrow" instance=ExtResource( 1 )]
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+
+[node name="Body" parent="." index="0"]
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Hilt" parent="Body" index="0"]
+collision_layer = 0
+collision_mask = 1

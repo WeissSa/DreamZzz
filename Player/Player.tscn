@@ -67,35 +67,35 @@ animations = [ {
 "name": "AirAttack",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 16 ) ],
 "loop": true,
-"name": "WallClimb",
-"speed": 24.0
-}, {
-"frames": [ ExtResource( 46 ), ExtResource( 45 ) ],
-"loop": true,
-"name": "Hang",
-"speed": 5.0
+"name": "Run",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 37 ), ExtResource( 39 ), ExtResource( 38 ) ],
+"loop": false,
+"name": "Cast",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 46 ), ExtResource( 45 ) ],
 "loop": true,
-"name": "Run",
-"speed": 10.0
+"name": "Hang",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 27 ) ],
 "loop": false,
 "name": "Attack",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 37 ), ExtResource( 39 ), ExtResource( 38 ) ],
-"loop": false,
-"name": "Cast",
-"speed": 15.0
+"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "WallClimb",
+"speed": 24.0
 } ]
 
 [sub_resource type="Animation" id=3]
@@ -144,6 +144,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "Hang"
+playing = true
 
 [node name="Checkers" type="Node2D" parent="."]
 
@@ -221,7 +222,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="KnockbackTimeout" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
 one_shot = true
 
 [node name="RespawnTimer" type="Timer" parent="."]

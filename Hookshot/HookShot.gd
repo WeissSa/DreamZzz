@@ -35,7 +35,7 @@ func _physics_process(delta):
 	if flying:
 		if $Tip.move_and_collide(direction * SPEED):
 			hooked = true
-			$Tip/HookParticles.emitting = true
+			$Tip/Node2D/HookParticles/AnimationPlayer.play("sparkle")
 			$Tip/clink.play()
 			flying = false
 	tip = $Tip.global_position

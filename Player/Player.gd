@@ -24,6 +24,7 @@ var animate_cancel = false
 var detectable = true
 var attacking = false
 var sliding = false
+var hanging = false
 var chain_vel = Vector2(0,0)
 
 var respawn_point = Vector2(30,-40)
@@ -166,8 +167,10 @@ func wall_jump():
 			if tired == 1:
 				$ClimbTime.paused = true
 		if motion.y == 1 and sliding:
-			$AnimatedSprite.play("Hang")
+			hanging = true
+			$AnimatedSprite.playing = true
 		else:
+			hanging = false
 			$AnimatedSprite.playing = true
 
 func check_wall(Raycast):
@@ -224,10 +227,11 @@ func animate():
 		else:
 			$AnimatedSprite.play("idle")
 	else:
-		if sliding:
+		if hanging:
+			$AnimatedSprite.play('Hang')
+			$AnimatedSprite.playing = true
+		else:
 			$AnimatedSprite.play('WallClimb')
-		elif !sliding:
-			$SlideAnimation.stop()
 			
 		if $ClimbTime.time_left < 1 and $ClimbTime.time_left > 0.2:
 			$AnimatedSprite.modulate = Color(colors[1])
@@ -244,9 +248,10 @@ func jumpPad():
 	get_tree().call_group("UI", "hookshot_track", cooldown)
 	
 func bottomless_void():
-	health -= 1
-	check_death()
-	$HitSound.play()
+	if not knockbacked:
+		health -= 1
+		check_death()
+		$HitSound.play()
 	get_tree().call_group("UI", "respawn")
 	get_tree().call_group("entities", "pause")
 	$RespawnTimer.start()
