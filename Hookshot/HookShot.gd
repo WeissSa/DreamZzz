@@ -8,8 +8,6 @@ const SPEED = 50
 
 var flying = false
 var hooked = false
-
-
 func shoot(dir):
 	direction = dir.normalized()
 	flying = true
@@ -19,11 +17,15 @@ func shoot(dir):
 func release():
 	flying = false
 	hooked = false
+	$Tip.collision_layer = 0
+	$Tip.collision_mask = 0
 
 func _process(delta):
 	self.visible = flying or hooked
 	if not self.visible:
 		return
+	$Tip.collision_layer = 16
+	$Tip.collision_mask = 2
 	var tip_loc = to_local(tip)
 	links.rotation = self.position.angle_to_point(tip_loc) - deg2rad(90)
 	$Tip.rotation = self.position.angle_to_point(tip_loc) - deg2rad(90)

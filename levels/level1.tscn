@@ -39,5 +39,5 @@ mandatory = true
 path = "res://Dialogue/Scripts/Dialoguelevel1.json"
 
 [editable path="Tiles/Shrooms/Mushrooms"]
-
 [editable path="Events/DialogueEvent"]
+[editable path="Events/DialogueEvent/CanvasLayer"]

@@ -16,7 +16,7 @@ func change_music(level_name):
 				playing = true
 			else:
 				play(time_save)
-		"level5", "level6":
+		"level5", "level6", "level7":
 			if stream != load("res://Music/JDB_Detection.wav"):
 				stream = load("res://Music/JDB_Detection.wav")
 				playing = true

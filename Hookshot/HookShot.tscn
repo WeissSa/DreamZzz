@@ -10,7 +10,9 @@
 radius = 5.29733
 height = 3.65648
 
-[node name="HookShot" type="Node2D"]
+[node name="HookShot" type="Node2D" groups=[
+"Hookshot",
+]]
 script = ExtResource( 3 )
 
 [node name="chain" type="Sprite" parent="."]

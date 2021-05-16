@@ -254,6 +254,7 @@ visible = false
 
 [node name="Opening" parent="." instance=ExtResource( 14 )]
 visible = false
+
 [connection signal="pressed" from="VBoxContainer/CenterContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer2/OptionButton" to="." method="_on_OptionButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer3/CreditButton" to="." method="_on_CreditButton_pressed"]
