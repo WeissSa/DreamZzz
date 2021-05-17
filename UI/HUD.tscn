@@ -84,4 +84,5 @@ __meta__ = {
 
 [node name="CoinTimer" type="Timer" parent="Coin"]
 wait_time = 3.0
+
 [connection signal="timeout" from="Coin/CoinTimer" to="." method="_on_CoinTimer_timeout"]

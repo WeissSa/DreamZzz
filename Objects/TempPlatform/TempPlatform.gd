@@ -2,16 +2,21 @@ extends Node2D
 
 var hooked = false
 
+func _ready():
+	$Area/AnimatedSprite.play("Idle")
+
 func _on_Area_hide():
 	$Area.collision_layer = 0
 	$Area.collision_mask = 0
 	$Area/StaticBody2D.collision_layer = 0
 	$Area/StaticBody2D.collision_mask = 0
 	get_tree().call_group("Hookshot", "release")
+	$Area/AnimatedSprite.play("Idle")
 
 
 func _on_Area_body_entered(body):
 	if visible:
+		$Area/AnimatedSprite.play("Collapse")
 		$Fade.play("Fade")
 		if body.name == "Tip":
 			hooked = true

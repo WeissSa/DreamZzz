@@ -200,6 +200,10 @@ func apply_gravity():
 		if on_ground == true:
 			on_ground = false
 		motion.y += GRAVITY
+		if $HookShot.hooked:
+			hookshottable = false
+			if cooldown:
+					get_tree().call_group("UI", "hookshot_track", cooldown)
 	if is_on_fan:
 		motion.y -= fan_boost
 

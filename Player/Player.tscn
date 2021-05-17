@@ -62,15 +62,20 @@ animations = [ {
 "name": "Jump",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 17 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 32 ), ExtResource( 41 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 40 ) ],
 "loop": false,
 "name": "AirAttack",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 46 ), ExtResource( 45 ) ],
 "loop": true,
-"name": "Run",
-"speed": 10.0
+"name": "Hang",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 14 ) ],
 "loop": true,
@@ -81,11 +86,6 @@ animations = [ {
 "loop": false,
 "name": "Cast",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 46 ), ExtResource( 45 ) ],
-"loop": true,
-"name": "Hang",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 27 ) ],
 "loop": false,
@@ -144,7 +144,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "Hang"
-frame = 1
 playing = true
 
 [node name="Checkers" type="Node2D" parent="."]
@@ -219,7 +218,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="HookShotCooldown" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 0.5
 one_shot = true
 
 [node name="KnockbackTimeout" type="Timer" parent="."]
