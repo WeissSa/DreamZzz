@@ -10,8 +10,10 @@ func _on_Area_hide():
 	$Area.collision_mask = 0
 	$Area/StaticBody2D.collision_layer = 0
 	$Area/StaticBody2D.collision_mask = 0
-	get_tree().call_group("Hookshot", "release")
+	if hooked:
+		get_tree().call_group("Hookshot", "release")
 	$Area/AnimatedSprite.play("Idle")
+	hooked = false
 
 
 func _on_Area_body_entered(body):

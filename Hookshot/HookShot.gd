@@ -8,6 +8,7 @@ const SPEED = 50
 
 var flying = false
 var hooked = false
+
 func shoot(dir):
 	direction = dir.normalized()
 	flying = true

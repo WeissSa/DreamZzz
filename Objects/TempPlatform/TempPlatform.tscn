@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Objects/TempPlatform/TempPlatform.gd" type="Script" id=1]
 [ext_resource path="res://Objects/TempPlatform/TempPlat4.png" type="Texture" id=2]
@@ -10,17 +10,20 @@
 [ext_resource path="res://Objects/TempPlatform/TempPlat7.png" type="Texture" id=8]
 [ext_resource path="res://Objects/TempPlatform/TempPlat1.png" type="Texture" id=9]
 
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( -110.84, 60.0352, -103.129, 62.4903, -85.8917, 50.7055, -80.902, 50.7055, -68.2008, 62.9813, -53.6852, 55.1248, -47.7883, 61.9993, 7.55243, 61.9993, 16.1711, 55.1248, 26.1505, 62.9813, 47.4703, 61.5082, 56.9962, 51.1966, 71.5117, 61.0172, 83.3057, 61.9993, 84.6665, 50.2145, 101.904, 61.5082, 128.213, 61.5082, 128.667, 34.5015, 121.409, 23.6988, 128.667, -0.361801, 128.213, -38.1713, 115.512, -47.9919, 128.667, -55.3574, 127.306, -63.7049, 115.966, -63.2139, 102.357, -56.3395, 68.3365, -50.4471, 63.3467, -62.7229, -19.6643, -62.7229, -30.0974, -55.8484, -46.8811, -62.2318, -53.6852, -54.8664, -64.5719, -57.3215, -75.005, -47.0098, -95.8712, -60.7587, -110.387, -55.3574, -120.82, -61.7408, -128.078, -61.2498, -128.985, -25.8955, -120.366, -15.0928, -128.985, -7.72728, -129.892, 9.94987, -125.356, 13.8781, -125.356, 25.1719, -128.985, 27.136, -128.531, 34.5015 )
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "Collapse",
-"speed": 12.0
-}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "Collapse",
+"speed": 12.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -64,6 +67,11 @@ scale = Vector2( 3.08963, 1.42709 )
 collision_layer = 2
 collision_mask = 21
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Area"]
+position = Vector2( 20, 20 )
+scale = Vector2( 0.15, 0.3 )
+occluder = SubResource( 5 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Area"]
 position = Vector2( 20, 20 )
 scale = Vector2( 0.15, 0.3 )
@@ -81,7 +89,6 @@ collision_layer = 2
 collision_mask = 21
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area/StaticBody2D"]
-visible = false
 position = Vector2( 20, 20 )
 shape = SubResource( 3 )
 
