@@ -21,6 +21,8 @@ func take_damage():
 
 func add_heart():
 	hearts.append(1)
+	while len(hearts) > 3:
+		hearts.pop_front()
 	update_UI()
 
 func hookshot_track(used):

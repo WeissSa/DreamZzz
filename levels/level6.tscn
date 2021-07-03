@@ -695,7 +695,7 @@ position = Vector2( -798.387, -841.676 )
 
 [node name="EndLevel" parent="Objects in Front" index="5"]
 position = Vector2( -47.9545, -43.672 )
-send_to = "6"
+send_to = "7"
 
 [node name="Entity" parent="Enemies" index="0" instance=ExtResource( 10 )]
 position = Vector2( -1042.36, -1521.68 )
