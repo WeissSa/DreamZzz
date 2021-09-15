@@ -1,2 +1,0 @@
-# DreamZzz
-My Game
